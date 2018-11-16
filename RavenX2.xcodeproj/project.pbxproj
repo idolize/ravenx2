@@ -28,6 +28,13 @@
 		D5AA28C4219E4A8E00FB8C2B /* Starfield.sks in Resources */ = {isa = PBXBuildFile; fileRef = D5AA28C1219E4A8E00FB8C2B /* Starfield.sks */; };
 		D5AA28C5219E4A8E00FB8C2B /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D5AA28C2219E4A8E00FB8C2B /* Explosion.sks */; };
 		D5AA28C6219E4A8E00FB8C2B /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D5AA28C2219E4A8E00FB8C2B /* Explosion.sks */; };
+		D5AA28CE219E74AB00FB8C2B /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D5AA28CD219E74AB00FB8C2B /* MenuScene.sks */; };
+		D5AA28CF219E74AB00FB8C2B /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D5AA28CD219E74AB00FB8C2B /* MenuScene.sks */; };
+		D5AA28D1219E77D500FB8C2B /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA28D0219E77D500FB8C2B /* MenuScene.swift */; };
+		D5AA28D2219E77D500FB8C2B /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA28D0219E77D500FB8C2B /* MenuScene.swift */; };
+		D5AA28D4219E7B9500FB8C2B /* VectorMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA28D3219E7B9500FB8C2B /* VectorMath.swift */; };
+		D5AA28D5219E7B9500FB8C2B /* VectorMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA28D3219E7B9500FB8C2B /* VectorMath.swift */; };
+		D5AA28D8219E87E500FB8C2B /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA28D7219E87E500FB8C2B /* Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +56,10 @@
 		D5AA28B9219E49F000FB8C2B /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		D5AA28C1219E4A8E00FB8C2B /* Starfield.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Starfield.sks; sourceTree = "<group>"; };
 		D5AA28C2219E4A8E00FB8C2B /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		D5AA28CD219E74AB00FB8C2B /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MenuScene.sks; path = "RavenX2 Shared/Menu/MenuScene.sks"; sourceTree = SOURCE_ROOT; };
+		D5AA28D0219E77D500FB8C2B /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		D5AA28D3219E7B9500FB8C2B /* VectorMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorMath.swift; sourceTree = "<group>"; };
+		D5AA28D7219E87E500FB8C2B /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +93,13 @@
 		D5AA2882219E407F00FB8C2B /* RavenX2 Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D5AA28C2219E4A8E00FB8C2B /* Explosion.sks */,
-				D5AA28C1219E4A8E00FB8C2B /* Starfield.sks */,
 				D5AA2883219E407F00FB8C2B /* Actions.sks */,
-				D5AA2885219E407F00FB8C2B /* GameScene.swift */,
-				D5AA28B9219E49F000FB8C2B /* explosion.mp3 */,
-				D5AA28B8219E49F000FB8C2B /* torpedo.mp3 */,
+				D5AA28D6219E806800FB8C2B /* Menu */,
+				D5AA28CC219E745E00FB8C2B /* Emitters */,
+				D5AA28CA219E744E00FB8C2B /* Game */,
+				D5AA28CB219E745600FB8C2B /* Sounds */,
 				D5AA2886219E408000FB8C2B /* Assets.xcassets */,
+				D5AA28D3219E7B9500FB8C2B /* VectorMath.swift */,
 			);
 			path = "RavenX2 Shared";
 			sourceTree = "<group>";
@@ -121,8 +132,44 @@
 				D5AA28A1219E408000FB8C2B /* GameViewController.swift */,
 				D5AA28A3219E408000FB8C2B /* Main.storyboard */,
 				D5AA28A6219E408000FB8C2B /* Info.plist */,
+				D5AA28D7219E87E500FB8C2B /* Keyboard.swift */,
 			);
 			path = "RavenX2 macOS";
+			sourceTree = "<group>";
+		};
+		D5AA28CA219E744E00FB8C2B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				D5AA2885219E407F00FB8C2B /* GameScene.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		D5AA28CB219E745600FB8C2B /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D5AA28B9219E49F000FB8C2B /* explosion.mp3 */,
+				D5AA28B8219E49F000FB8C2B /* torpedo.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		D5AA28CC219E745E00FB8C2B /* Emitters */ = {
+			isa = PBXGroup;
+			children = (
+				D5AA28C2219E4A8E00FB8C2B /* Explosion.sks */,
+				D5AA28C1219E4A8E00FB8C2B /* Starfield.sks */,
+			);
+			path = Emitters;
+			sourceTree = "<group>";
+		};
+		D5AA28D6219E806800FB8C2B /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				D5AA28D0219E77D500FB8C2B /* MenuScene.swift */,
+				D5AA28CD219E74AB00FB8C2B /* MenuScene.sks */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +258,7 @@
 				D5AA28BC219E49F000FB8C2B /* explosion.mp3 in Resources */,
 				D5AA28BA219E49F000FB8C2B /* torpedo.mp3 in Resources */,
 				D5AA28AD219E408000FB8C2B /* Assets.xcassets in Resources */,
+				D5AA28CE219E74AB00FB8C2B /* MenuScene.sks in Resources */,
 				D5AA28C5219E4A8E00FB8C2B /* Explosion.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +274,7 @@
 				D5AA28C6219E4A8E00FB8C2B /* Explosion.sks in Resources */,
 				D5AA28AE219E408000FB8C2B /* Assets.xcassets in Resources */,
 				D5AA28A8219E408000FB8C2B /* Actions.sks in Resources */,
+				D5AA28CF219E74AB00FB8C2B /* MenuScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +286,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5AA28AB219E408000FB8C2B /* GameScene.swift in Sources */,
+				D5AA28D1219E77D500FB8C2B /* MenuScene.swift in Sources */,
 				D5AA2891219E408000FB8C2B /* GameViewController.swift in Sources */,
+				D5AA28D4219E7B9500FB8C2B /* VectorMath.swift in Sources */,
 				D5AA288F219E408000FB8C2B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,7 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5AA28AC219E408000FB8C2B /* GameScene.swift in Sources */,
+				D5AA28D2219E77D500FB8C2B /* MenuScene.swift in Sources */,
 				D5AA28A2219E408000FB8C2B /* GameViewController.swift in Sources */,
+				D5AA28D5219E7B9500FB8C2B /* VectorMath.swift in Sources */,
+				D5AA28D8219E87E500FB8C2B /* Keyboard.swift in Sources */,
 				D5AA28A0219E408000FB8C2B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

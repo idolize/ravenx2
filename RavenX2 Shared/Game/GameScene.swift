@@ -13,6 +13,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var starfield: SKEmitterNode!
     var player: SKSpriteNode!
+    var lastTouch: UITouch?
+    let playerSpeed: CGFloat = 550.0
     
     var scoreLabel: SKLabelNode!
     var score:Int = 0 {
@@ -25,6 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var possibleAliens = ["alien", "alien2", "alien3"]
     
+    let shipCategory: UInt32 = 0x1 << 2
     let alienCategory: UInt32 = 0x1 << 1
     let photonTorpedoCategory:UInt32 = 0x1 << 0
     
@@ -35,6 +38,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let scene = GameScene(size: view.bounds.size)
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .resizeFill
+        // For Debug Use only
+        view.showsPhysics = true
         return scene
     }
     
@@ -48,6 +53,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player = SKSpriteNode(imageNamed: "shuttle")
         player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
+        player.physicsBody?.categoryBitMask = shipCategory
+        player.physicsBody?.collisionBitMask = 0
+        player.physicsBody?.allowsRotation = false
+        let xConstraint = SKConstraint.positionX(SKRange(lowerLimit: 0, upperLimit: self.frame.size.width))
+        let yConstraint = SKConstraint.positionY(SKRange(lowerLimit: 0, upperLimit: self.frame.size.height))
+        player.constraints = [ xConstraint, yConstraint ]
         
         self.addChild(player)
         
@@ -177,21 +189,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    override func didSimulatePhysics() {
-        
-        player.position.x += xAcceleration * 50
-        
-        if player.position.x < -20 {
-            player.position = CGPoint(x: self.size.width + 20, y: player.position.y)
-        } else if player.position.x > self.size.width + 20 {
-            player.position = CGPoint(x: -20, y: player.position.y)
-        }
-        
-    }
-    
     
     override func didMove(to view: SKView) {
         self.setUpScene(view)
+    }
+    
+    override func didSimulatePhysics() {
+        updatePlayer()
+    }
+    
+    // Determines if the player's position should be updated
+    private func shouldMove(currentPosition: CGPoint, touchPosition: CGPoint) -> Bool {
+        return abs(currentPosition.x - touchPosition.x) > player!.frame.width / 4 ||
+            abs(currentPosition.y - touchPosition.y) > player!.frame.height / 4
+    }
+    
+    // Updates the player's position by moving towards the last touch made
+    func updatePlayer() {
+        if let touch = lastTouch {
+            let currentPosition = player!.position
+            let touchPosition = touch.location(in: self)
+            if shouldMove(currentPosition: currentPosition, touchPosition: touchPosition) {
+                
+                let angle = atan2(currentPosition.y - touchPosition.y, currentPosition.x - touchPosition.x) + .pi
+                
+                let velocotyX = playerSpeed * cos(angle)
+                let velocityY = playerSpeed * sin(angle)
+                
+                let newVelocity = CGVector(dx: velocotyX, dy: velocityY)
+                player.physicsBody!.velocity = newVelocity;
+                return
+            }
+        }
+        player.physicsBody!.isResting = true
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -211,20 +241,19 @@ extension GameScene {
 //        for t in touches {
 //            self.makeSpinny(at: t.location(in: self), color: SKColor.green)
 //        }
+        lastTouch = touches.first
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for t in touches {
-//            self.makeSpinny(at: t.location(in: self), color: SKColor.blue)
+//        if let touch: UITouch = touches.first {
+//            let location = touch.location(in: self)
+//            let prevLocation = touch.previousLocation(in: self)
+//
+//            let delta = ((location - prevLocation).normalized()).vector()
+//
+//            player.physicsBody!.applyImpulse(delta)
 //        }
-        let t: UITouch = touches.first! as UITouch
-        
-        let l =      t.location(in: parent!)
-        let prev =   t.previousLocation(in: parent!)
-        
-        let delta = (l - prev).vector
-        
-        player.physicsBody!.applyImpulse(delta)
+        lastTouch = touches.first
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -232,17 +261,21 @@ extension GameScene {
 //            self.makeSpinny(at: t.location(in: self), color: SKColor.red)
 //        }
         fireTorpedo()
+        lastTouch = nil
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        for t in touches {
 //            self.makeSpinny(at: t.location(in: self), color: SKColor.red)
 //        }
+        lastTouch = nil
     }
 
 
 }
 #endif
+
+
 
 #if os(OSX)
 // Mouse-based event handling
@@ -263,6 +296,30 @@ extension GameScene {
 //        self.makeSpinny(at: event.location(in: self), color: SKColor.red)
         fireTorpedo()
     }
+    
+//    override func update(currentTime: NSTimeInterval) {
+//        super.update(currentTime)
+//
+//        if (Keyboard.sharedKeyboard.justPressed(KeyCode.Space)) {
+//            // single key
+//        } else if (Keyboard.sharedKeyboard.pressed(KeyCode.Space, KeyCode.Return)) {
+//            // two keys
+//        } else if (Keyboard.sharedKeyboard.justReleased(KeyCode.Space, KeyCode.W, KeyCode.T, KeyCode.LeftShift)) {
+//            // many keys
+//        }
+//    }
+//
+//    override func didFinishUpdate() {
+//        Keyboard.sharedKeyboard.update()
+//    }
+//
+//    override func keyUp(theEvent: NSEvent) {
+//        Keyboard.sharedKeyboard.handleKey(theEvent, isDown: false)
+//    }
+//
+//    override func keyDown(theEvent: NSEvent) {
+//        Keyboard.sharedKeyboard.handleKey(theEvent, isDown: true)
+//    }
 
 }
 #endif
