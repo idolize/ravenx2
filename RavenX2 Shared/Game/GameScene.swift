@@ -12,9 +12,10 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var starfield: SKEmitterNode!
-    var player: SKSpriteNode!
+    var player: Player!
     var lastTouch: UITouch?
-    let playerSpeed: CGFloat = 550.0
+    // Entity-component system
+    var entityManager: EntityManager!
     
     var scoreLabel: SKLabelNode!
     var score:Int = 0 {
@@ -26,11 +27,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameTimer: Timer!
     
     var possibleAliens = ["alien", "alien2", "alien3"]
-    
-    let shipCategory: UInt32 = 0x1 << 2
-    let alienCategory: UInt32 = 0x1 << 1
-    let photonTorpedoCategory:UInt32 = 0x1 << 0
-    
     
     var xAcceleration: CGFloat = 0
     
@@ -45,23 +41,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpScene(_ view: SKView) {
         starfield = SKEmitterNode(fileNamed: "Starfield")
-        starfield.position = CGPoint(x: 0, y: self.size.height)
+        starfield.position = CGPoint(x: self.size.width / 2, y: self.size.height)
         starfield.advanceSimulationTime(10)
         self.addChild(starfield)
         
         starfield.zPosition = -1
+      
+        // Create entity manager
+        entityManager = EntityManager(scene: self)
         
-        player = SKSpriteNode(imageNamed: "shuttle")
-        player.position = CGPoint(x: self.frame.size.width / 2, y: player.size.height / 2 + 20)
-        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
-        player.physicsBody?.categoryBitMask = shipCategory
-        player.physicsBody?.collisionBitMask = 0
-        player.physicsBody?.allowsRotation = false
         let xConstraint = SKConstraint.positionX(SKRange(lowerLimit: 0, upperLimit: self.frame.size.width))
         let yConstraint = SKConstraint.positionY(SKRange(lowerLimit: 0, upperLimit: self.frame.size.height))
-        player.constraints = [ xConstraint, yConstraint ]
-        
-        self.addChild(player)
+        let constraints = [ xConstraint, yConstraint ]
+        player = Player(
+            position: CGPoint(x: 40, y: self.frame.size.height / 2),
+            constraints: constraints,
+            entityManager: entityManager
+        )
+        entityManager.add(player)
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
@@ -77,28 +74,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         gameTimer = Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(addAlien), userInfo: nil, repeats: true)
-        
-        
-        
-        
     }
     
     @objc
     func addAlien () {
+        // TODO move this to a entity and entity manager
         possibleAliens = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleAliens) as! [String]
         
         let alien = SKSpriteNode(imageNamed: possibleAliens[0])
         
-        let randomAlienPosition = GKRandomDistribution(lowestValue: 0, highestValue: 414)
+        let randomAlienPosition = GKRandomDistribution(lowestValue: 0, highestValue: Int(self.frame.size.height))
         let position = CGFloat(randomAlienPosition.nextInt())
         
-        alien.position = CGPoint(x: position, y: self.frame.size.height + alien.size.height)
+        alien.position = CGPoint(x: self.frame.size.width + alien.size.width, y: position)
         
         alien.physicsBody = SKPhysicsBody(rectangleOf: alien.size)
         alien.physicsBody?.isDynamic = true
         
-        alien.physicsBody?.categoryBitMask = alienCategory
-        alien.physicsBody?.contactTestBitMask = photonTorpedoCategory
+        alien.physicsBody?.categoryBitMask = PhysicsType.Enemy
+        alien.physicsBody?.contactTestBitMask = PhysicsType.Projectile
         alien.physicsBody?.collisionBitMask = 0
         
         self.addChild(alien)
@@ -108,7 +102,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var actionArray = [SKAction]()
         
         
-        actionArray.append(SKAction.move(to: CGPoint(x: position, y: -alien.size.height), duration: animationDuration))
+        actionArray.append(SKAction.move(to: CGPoint(x: -alien.size.width, y: position), duration: animationDuration))
         actionArray.append(SKAction.removeFromParent())
         
         alien.run(SKAction.sequence(actionArray))
@@ -117,58 +111,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    func fireTorpedo() {
-        self.run(SKAction.playSoundFileNamed("torpedo.mp3", waitForCompletion: false))
-        
-        let torpedoNode = SKSpriteNode(imageNamed: "torpedo")
-        torpedoNode.position = player.position
-        torpedoNode.position.y += 5
-        
-        torpedoNode.physicsBody = SKPhysicsBody(circleOfRadius: torpedoNode.size.width / 2)
-        torpedoNode.physicsBody?.isDynamic = true
-        
-        torpedoNode.physicsBody?.categoryBitMask = photonTorpedoCategory
-        torpedoNode.physicsBody?.contactTestBitMask = alienCategory
-        torpedoNode.physicsBody?.collisionBitMask = 0
-        torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
-        
-        self.addChild(torpedoNode)
-        
-        let animationDuration:TimeInterval = 0.3
-        
-        
-        var actionArray = [SKAction]()
-        
-        actionArray.append(SKAction.move(to: CGPoint(x: player.position.x, y: self.frame.size.height + 10), duration: animationDuration))
-        actionArray.append(SKAction.removeFromParent())
-        
-        torpedoNode.run(SKAction.sequence(actionArray))
-        
-        
-        
-    }
-    
-    
     func didBegin(_ contact: SKPhysicsContact) {
-        var firstBody:SKPhysicsBody
-        var secondBody:SKPhysicsBody
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
         
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
-        }else{
+        } else {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
         
-        if (firstBody.categoryBitMask & photonTorpedoCategory) != 0 && (secondBody.categoryBitMask & alienCategory) != 0 {
-            torpedoDidCollideWithAlien(torpedoNode: firstBody.node as! SKSpriteNode, alienNode: secondBody.node as! SKSpriteNode)
+        // TODO write this in a way that doesn't depend on the order of the numbers...
+        if (firstBody.categoryBitMask & PhysicsType.Enemy) != 0 && (secondBody.categoryBitMask & PhysicsType.Projectile) != 0 {
+            torpedoDidCollideWithAlien(alienNode: firstBody.node as! SKSpriteNode, torpedoNode: secondBody.node as! SKSpriteNode)
         }
         
     }
     
     
-    func torpedoDidCollideWithAlien (torpedoNode:SKSpriteNode, alienNode:SKSpriteNode) {
+    func torpedoDidCollideWithAlien(alienNode: SKSpriteNode, torpedoNode: SKSpriteNode) {
         
         let explosion = SKEmitterNode(fileNamed: "Explosion")!
         explosion.position = alienNode.position
@@ -176,17 +139,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.run(SKAction.playSoundFileNamed("explosion.mp3", waitForCompletion: false))
         
-        torpedoNode.removeFromParent()
+        if let torpedoEntity = torpedoNode.entity {
+            entityManager.remove(torpedoEntity)
+        }
+        // TODO alien not controlled by entity manager yet...
+        alienNode.removeAllActions()
         alienNode.removeFromParent()
-        
         
         self.run(SKAction.wait(forDuration: 2)) {
             explosion.removeFromParent()
         }
         
         score += 5
-        
-        
     }
     
     
@@ -195,79 +159,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didSimulatePhysics() {
-        updatePlayer()
+        let touchPosition = lastTouch?.location(in: self)
+        player.updatePhysics(destination: touchPosition)
     }
     
-    // Determines if the player's position should be updated
-    private func shouldMove(currentPosition: CGPoint, touchPosition: CGPoint) -> Bool {
-        return abs(currentPosition.x - touchPosition.x) > player!.frame.width / 4 ||
-            abs(currentPosition.y - touchPosition.y) > player!.frame.height / 4
-    }
-    
-    // Updates the player's position by moving towards the last touch made
-    func updatePlayer() {
-        if let touch = lastTouch {
-            let currentPosition = player!.position
-            let touchPosition = touch.location(in: self)
-            if shouldMove(currentPosition: currentPosition, touchPosition: touchPosition) {
-                
-                let angle = atan2(currentPosition.y - touchPosition.y, currentPosition.x - touchPosition.x) + .pi
-                
-                let velocotyX = playerSpeed * cos(angle)
-                let velocityY = playerSpeed * sin(angle)
-                
-                let newVelocity = CGVector(dx: velocotyX, dy: velocityY)
-                player.physicsBody!.velocity = newVelocity;
-                return
-            }
-        }
-        player.physicsBody!.isResting = true
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
+    override func update(_ deltaTime: TimeInterval) {
         // Called before each frame is rendered
+        entityManager.update(deltaTime)
     }
 }
 
-#if os(iOS) || os(tvOS)
-// Touch-based event handling
+#if os(iOS)
 extension GameScene {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let label = self.label {
-//            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-//        }
-//
-//        for t in touches {
-//            self.makeSpinny(at: t.location(in: self), color: SKColor.green)
-//        }
         lastTouch = touches.first
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let touch: UITouch = touches.first {
-//            let location = touch.location(in: self)
-//            let prevLocation = touch.previousLocation(in: self)
-//
-//            let delta = ((location - prevLocation).normalized()).vector()
-//
-//            player.physicsBody!.applyImpulse(delta)
-//        }
+        if let touch: UITouch = touches.first {
+            let location = touch.location(in: self)
+            let prevLocation = touch.previousLocation(in: self)
+
+            let delta = ((location - prevLocation).normalized()).vector()
+
+            // TODO Show particles to indicate movement
+        }
         lastTouch = touches.first
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for t in touches {
-//            self.makeSpinny(at: t.location(in: self), color: SKColor.red)
-//        }
-        fireTorpedo()
         lastTouch = nil
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        for t in touches {
-//            self.makeSpinny(at: t.location(in: self), color: SKColor.red)
-//        }
         lastTouch = nil
     }
 
@@ -278,24 +203,7 @@ extension GameScene {
 
 
 #if os(OSX)
-// Mouse-based event handling
 extension GameScene {
-
-    override func mouseDown(with event: NSEvent) {
-//        if let label = self.label {
-//            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-//        }
-//        self.makeSpinny(at: event.location(in: self), color: SKColor.green)
-    }
-
-    override func mouseDragged(with event: NSEvent) {
-//        self.makeSpinny(at: event.location(in: self), color: SKColor.blue)
-    }
-
-    override func mouseUp(with event: NSEvent) {
-//        self.makeSpinny(at: event.location(in: self), color: SKColor.red)
-        fireTorpedo()
-    }
     
 //    override func update(currentTime: NSTimeInterval) {
 //        super.update(currentTime)

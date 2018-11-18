@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D53F46FA219FFB9F00672A42 /* HeroShip.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D53F46F9219FFB9F00672A42 /* HeroShip.atlas */; };
+		D53F46FC219FFC3500672A42 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F46FB219FFC3500672A42 /* Player.swift */; };
+		D53F46FD219FFC3500672A42 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F46FB219FFC3500672A42 /* Player.swift */; };
+		D53F470021A0C96B00672A42 /* GeometryHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F46FF21A0C96B00672A42 /* GeometryHelpers.swift */; };
+		D53F470121A0C96B00672A42 /* GeometryHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F46FF21A0C96B00672A42 /* GeometryHelpers.swift */; };
+		D53F471121A0EF5600672A42 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F470721A0EF5500672A42 /* SpriteComponent.swift */; };
+		D53F471221A0EF5600672A42 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F470721A0EF5500672A42 /* SpriteComponent.swift */; };
+		D53F472221A1036900672A42 /* PhysicsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472121A1036900672A42 /* PhysicsType.swift */; };
+		D53F472321A1036900672A42 /* PhysicsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472121A1036900672A42 /* PhysicsType.swift */; };
+		D53F472621A1228C00672A42 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472521A1228C00672A42 /* EntityManager.swift */; };
+		D53F472721A1228C00672A42 /* EntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472521A1228C00672A42 /* EntityManager.swift */; };
+		D53F472921A1277300672A42 /* FiringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472821A1277300672A42 /* FiringComponent.swift */; };
+		D53F472A21A1277300672A42 /* FiringComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472821A1277300672A42 /* FiringComponent.swift */; };
+		D53F472C21A127C900672A42 /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472B21A127C900672A42 /* TeamComponent.swift */; };
+		D53F472D21A127C900672A42 /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472B21A127C900672A42 /* TeamComponent.swift */; };
+		D53F473021A133F000672A42 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472F21A133F000672A42 /* Projectile.swift */; };
+		D53F473121A133F000672A42 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472F21A133F000672A42 /* Projectile.swift */; };
 		D5AA288F219E408000FB8C2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA288E219E408000FB8C2B /* AppDelegate.swift */; };
 		D5AA2891219E408000FB8C2B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA2890219E408000FB8C2B /* GameViewController.swift */; };
 		D5AA2894219E408000FB8C2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5AA2892219E408000FB8C2B /* Main.storyboard */; };
@@ -18,8 +35,8 @@
 		D5AA28A8219E408000FB8C2B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D5AA2883219E407F00FB8C2B /* Actions.sks */; };
 		D5AA28AB219E408000FB8C2B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA2885219E407F00FB8C2B /* GameScene.swift */; };
 		D5AA28AC219E408000FB8C2B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA2885219E407F00FB8C2B /* GameScene.swift */; };
-		D5AA28AD219E408000FB8C2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5AA2886219E408000FB8C2B /* Assets.xcassets */; };
-		D5AA28AE219E408000FB8C2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5AA2886219E408000FB8C2B /* Assets.xcassets */; };
+		D5AA28AD219E408000FB8C2B /* GameAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5AA2886219E408000FB8C2B /* GameAssets.xcassets */; };
+		D5AA28AE219E408000FB8C2B /* GameAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5AA2886219E408000FB8C2B /* GameAssets.xcassets */; };
 		D5AA28BA219E49F000FB8C2B /* torpedo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D5AA28B8219E49F000FB8C2B /* torpedo.mp3 */; };
 		D5AA28BB219E49F000FB8C2B /* torpedo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D5AA28B8219E49F000FB8C2B /* torpedo.mp3 */; };
 		D5AA28BC219E49F000FB8C2B /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D5AA28B9219E49F000FB8C2B /* explosion.mp3 */; };
@@ -38,9 +55,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D53F46F9219FFB9F00672A42 /* HeroShip.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HeroShip.atlas; sourceTree = "<group>"; };
+		D53F46FB219FFC3500672A42 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D53F46FF21A0C96B00672A42 /* GeometryHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryHelpers.swift; sourceTree = "<group>"; };
+		D53F470721A0EF5500672A42 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpriteComponent.swift; path = "../../../../../Downloads/MonsterWars-Complete/MonsterWars/SpriteComponent.swift"; sourceTree = "<group>"; };
+		D53F472121A1036900672A42 /* PhysicsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsType.swift; sourceTree = "<group>"; };
+		D53F472521A1228C00672A42 /* EntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityManager.swift; sourceTree = "<group>"; };
+		D53F472821A1277300672A42 /* FiringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiringComponent.swift; sourceTree = "<group>"; };
+		D53F472B21A127C900672A42 /* TeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
+		D53F472F21A133F000672A42 /* Projectile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
 		D5AA2883219E407F00FB8C2B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		D5AA2885219E407F00FB8C2B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		D5AA2886219E408000FB8C2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5AA2886219E408000FB8C2B /* GameAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameAssets.xcassets; sourceTree = "<group>"; };
 		D5AA288B219E408000FB8C2B /* RavenX2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RavenX2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5AA288E219E408000FB8C2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5AA2890219E408000FB8C2B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +106,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D53F46FE21A0C91A00672A42 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D5AA28D3219E7B9500FB8C2B /* VectorMath.swift */,
+				D53F46FF21A0C96B00672A42 /* GeometryHelpers.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D53F470221A0EB1C00672A42 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D53F470721A0EF5500672A42 /* SpriteComponent.swift */,
+				D53F472821A1277300672A42 /* FiringComponent.swift */,
+				D53F472B21A127C900672A42 /* TeamComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D53F472421A1227500672A42 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D53F46FB219FFC3500672A42 /* Player.swift */,
+				D53F472521A1228C00672A42 /* EntityManager.swift */,
+				D53F472F21A133F000672A42 /* Projectile.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		D53F472E21A12E7E00672A42 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				D5AA2883219E407F00FB8C2B /* Actions.sks */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		D53F473221A1367400672A42 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D5AA28CB219E745600FB8C2B /* Sounds */,
+				D53F473321A1368D00672A42 /* Images */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		D53F473321A1368D00672A42 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D5AA2886219E408000FB8C2B /* GameAssets.xcassets */,
+				D53F46F9219FFB9F00672A42 /* HeroShip.atlas */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		D5AA287D219E407F00FB8C2B = {
 			isa = PBXGroup;
 			children = (
@@ -93,13 +174,14 @@
 		D5AA2882219E407F00FB8C2B /* RavenX2 Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D5AA2883219E407F00FB8C2B /* Actions.sks */,
+				D53F472E21A12E7E00672A42 /* Actions */,
+				D53F472421A1227500672A42 /* Entities */,
+				D53F470221A0EB1C00672A42 /* Components */,
+				D53F46FE21A0C91A00672A42 /* Utils */,
 				D5AA28D6219E806800FB8C2B /* Menu */,
 				D5AA28CC219E745E00FB8C2B /* Emitters */,
 				D5AA28CA219E744E00FB8C2B /* Game */,
-				D5AA28CB219E745600FB8C2B /* Sounds */,
-				D5AA2886219E408000FB8C2B /* Assets.xcassets */,
-				D5AA28D3219E7B9500FB8C2B /* VectorMath.swift */,
+				D53F473221A1367400672A42 /* Assets */,
 			);
 			path = "RavenX2 Shared";
 			sourceTree = "<group>";
@@ -140,6 +222,7 @@
 		D5AA28CA219E744E00FB8C2B /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				D53F472121A1036900672A42 /* PhysicsType.swift */,
 				D5AA2885219E407F00FB8C2B /* GameScene.swift */,
 			);
 			path = Game;
@@ -257,7 +340,8 @@
 				D5AA2897219E408000FB8C2B /* LaunchScreen.storyboard in Resources */,
 				D5AA28BC219E49F000FB8C2B /* explosion.mp3 in Resources */,
 				D5AA28BA219E49F000FB8C2B /* torpedo.mp3 in Resources */,
-				D5AA28AD219E408000FB8C2B /* Assets.xcassets in Resources */,
+				D53F46FA219FFB9F00672A42 /* HeroShip.atlas in Resources */,
+				D5AA28AD219E408000FB8C2B /* GameAssets.xcassets in Resources */,
 				D5AA28CE219E74AB00FB8C2B /* MenuScene.sks in Resources */,
 				D5AA28C5219E4A8E00FB8C2B /* Explosion.sks in Resources */,
 			);
@@ -272,7 +356,7 @@
 				D5AA28BB219E49F000FB8C2B /* torpedo.mp3 in Resources */,
 				D5AA28A5219E408000FB8C2B /* Main.storyboard in Resources */,
 				D5AA28C6219E4A8E00FB8C2B /* Explosion.sks in Resources */,
-				D5AA28AE219E408000FB8C2B /* Assets.xcassets in Resources */,
+				D5AA28AE219E408000FB8C2B /* GameAssets.xcassets in Resources */,
 				D5AA28A8219E408000FB8C2B /* Actions.sks in Resources */,
 				D5AA28CF219E74AB00FB8C2B /* MenuScene.sks in Resources */,
 			);
@@ -285,11 +369,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D53F472C21A127C900672A42 /* TeamComponent.swift in Sources */,
+				D53F472621A1228C00672A42 /* EntityManager.swift in Sources */,
 				D5AA28AB219E408000FB8C2B /* GameScene.swift in Sources */,
+				D53F473021A133F000672A42 /* Projectile.swift in Sources */,
 				D5AA28D1219E77D500FB8C2B /* MenuScene.swift in Sources */,
+				D53F472221A1036900672A42 /* PhysicsType.swift in Sources */,
+				D53F472921A1277300672A42 /* FiringComponent.swift in Sources */,
 				D5AA2891219E408000FB8C2B /* GameViewController.swift in Sources */,
 				D5AA28D4219E7B9500FB8C2B /* VectorMath.swift in Sources */,
+				D53F471121A0EF5600672A42 /* SpriteComponent.swift in Sources */,
+				D53F46FC219FFC3500672A42 /* Player.swift in Sources */,
 				D5AA288F219E408000FB8C2B /* AppDelegate.swift in Sources */,
+				D53F470021A0C96B00672A42 /* GeometryHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,12 +389,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D53F472721A1228C00672A42 /* EntityManager.swift in Sources */,
+				D53F471221A0EF5600672A42 /* SpriteComponent.swift in Sources */,
 				D5AA28AC219E408000FB8C2B /* GameScene.swift in Sources */,
 				D5AA28D2219E77D500FB8C2B /* MenuScene.swift in Sources */,
+				D53F473121A133F000672A42 /* Projectile.swift in Sources */,
 				D5AA28A2219E408000FB8C2B /* GameViewController.swift in Sources */,
 				D5AA28D5219E7B9500FB8C2B /* VectorMath.swift in Sources */,
+				D53F46FD219FFC3500672A42 /* Player.swift in Sources */,
 				D5AA28D8219E87E500FB8C2B /* Keyboard.swift in Sources */,
+				D53F472321A1036900672A42 /* PhysicsType.swift in Sources */,
 				D5AA28A0219E408000FB8C2B /* AppDelegate.swift in Sources */,
+				D53F472A21A1277300672A42 /* FiringComponent.swift in Sources */,
+				D53F472D21A127C900672A42 /* TeamComponent.swift in Sources */,
+				D53F470121A0C96B00672A42 /* GeometryHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +562,7 @@
 				PRODUCT_NAME = RavenX2;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -483,7 +583,7 @@
 				PRODUCT_NAME = RavenX2;
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
