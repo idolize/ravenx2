@@ -9,15 +9,13 @@
 import SceneKit
 import GameplayKit
 
-let playerSpeed: CGFloat = 550.0
+private let playerSpeed: CGFloat = 550.0
 
-// TODO rewrite using components
-class Player: GKEntity {
+class Player: EntityWithSpriteComponent {
     let entityManager: EntityManager
     
-    init(position: CGPoint, constraints: [SKConstraint]?, entityManager: EntityManager) {
+    init(entityManager: EntityManager, position: CGPoint, constraints: [SKConstraint]?) {
         self.entityManager = entityManager
-        super.init()
         // TODO move animation to component
         let animatedAtlas = SKTextureAtlas(named: "HeroShip")
         var frames: [SKTexture] = []
@@ -27,15 +25,15 @@ class Player: GKEntity {
         }
         let firstFrameTexture = frames[0]
         let size = GeometryHelpers.constrainSizeToWidth(firstFrameTexture.size(), maxWidth: 50)
-        let spriteComponent = SpriteComponent(entity: self, texture: firstFrameTexture, size: size)
-        addComponent(spriteComponent)
+        super.init(texture: firstFrameTexture, size: size)
+        
         // TODO move physics to component
-        let node = spriteComponent.node
         node.position = position
-        node.physicsBody = SKPhysicsBody(rectangleOf: node.size)
-        node.physicsBody?.categoryBitMask = PhysicsType.Player
-        node.physicsBody?.collisionBitMask = PhysicsType.None
-        node.physicsBody?.allowsRotation = false
+        let physicsBody = SKPhysicsBody(rectangleOf: node.size)
+        physicsBody.categoryBitMask = PhysicsType.Player
+        physicsBody.collisionBitMask = PhysicsType.None
+        physicsBody.allowsRotation = false
+        node.physicsBody = physicsBody
         node.constraints = constraints
         node.run(SKAction.repeatForever(
             SKAction.animate(with: frames,
@@ -55,10 +53,6 @@ class Player: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var node: SKSpriteNode {
-        return component(ofType: SpriteComponent.self)!.node
-    }
-    
     override func update(deltaTime seconds: TimeInterval) {
         // TODO handle keyboard navigation as well
         let lastTouch = component(ofType: TouchComponent.self)?.lastTouchLocation
@@ -71,7 +65,6 @@ class Player: GKEntity {
             abs(currentPosition.y - newPosition.y) > node.frame.height / 4
     }
   
-    // TODO move to component?
     // Updates the player's position by moving towards the last touch made
     private func updatePhysics(destination: CGPoint?) {
         if let newPosition = destination {

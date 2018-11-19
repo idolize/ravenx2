@@ -18,37 +18,31 @@ class FiringComponent: GKComponent {
     
     private func shoot() {
         // TODO best way to handle sound effects?
-//        self.run(SKAction.playSoundFileNamed("torpedo.mp3", waitForCompletion: false))
+        // self.run(SKAction.playSoundFileNamed("torpedo.mp3", waitForCompletion: false))
         
-        let torpedo = Projectile(team: Team.good)
-        guard let torpedoNode = torpedo.component(ofType: SpriteComponent.self)?.node,
-            let selfNode = self.entity?.component(ofType: SpriteComponent.self)?.node else {
+        guard let selfNode = self.entity?.component(ofType: NodeComponent.self)?.node else {
+            // Can't shoot from something that has no location
             return
         }
-        torpedoNode.position = selfNode.position
-        torpedoNode.position.x += (selfNode.size.width / 2) + (torpedoNode.size.width / 2)
+        var projInitialPosition = CGPoint(x: selfNode.position.x, y: selfNode.position.y)
+        if let selfNodeAsSprite = selfNode as? SKSpriteNode {
+            projInitialPosition.x += selfNodeAsSprite.size.width / 2
+        }
+        let projectile = Projectile(team: Team.good, position: projInitialPosition)
+        let projectileNode = projectile.node
+        projectileNode.zPosition = 1
         
-        torpedoNode.physicsBody = SKPhysicsBody(circleOfRadius: torpedoNode.size.width / 2)
-        torpedoNode.physicsBody?.isDynamic = true
+        let projectilePointsPerSecond = CGFloat(300)
+        let projectileDistance = CGFloat(1000)
+        let duration = projectileDistance / projectilePointsPerSecond
         
-        torpedoNode.physicsBody?.categoryBitMask = PhysicsType.Projectile
-        torpedoNode.physicsBody?.contactTestBitMask = PhysicsType.Enemy
-        torpedoNode.physicsBody?.collisionBitMask = 0
-        torpedoNode.physicsBody?.usesPreciseCollisionDetection = true
-        
-        let torpedoPointsPerSecond = CGFloat(300)
-        let torpedoDistance = CGFloat(1000)
-        let duration = torpedoDistance / torpedoPointsPerSecond
-        
-        torpedoNode.zPosition = 1
-        
-        torpedoNode.run(SKAction.sequence([
-            SKAction.moveBy(x: torpedoDistance, y: 0, duration: TimeInterval(duration)),
+        projectileNode.run(SKAction.sequence([
+            SKAction.moveBy(x: projectileDistance, y: 0, duration: TimeInterval(duration)),
             SKAction.run() {
-                self.entityManager.remove(torpedo)
+                self.entityManager.remove(projectile)
             }
         ]))
-        entityManager.add(torpedo)
+        entityManager.add(projectile)
     }
     
     override func update(deltaTime seconds: TimeInterval) {

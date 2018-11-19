@@ -35,13 +35,13 @@ class EntityManager {
             componentSystem.addComponent(foundIn: entity)
         }
         
-        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+        if let spriteNode = entity.component(ofType: NodeComponent.self)?.node {
             scene.addChild(spriteNode)
         }
     }
     
     func remove(_ entity: GKEntity) {
-        if let spriteNode = entity.component(ofType: SpriteComponent.self)?.node {
+        if let spriteNode = entity.component(ofType: NodeComponent.self)?.node {
             spriteNode.removeFromParent()
         }
         
