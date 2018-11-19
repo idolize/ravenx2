@@ -43,8 +43,12 @@ class Player: GKEntity {
                              resize: false,
                              restore: true)),
                  withKey:"thruster")
+
         // TODO Shooting should only happen when touch is down...
         addComponent(FiringComponent(entityManager: entityManager))
+        
+        // TODO conditionally add this vs keyboard component
+        addComponent(TouchComponent())
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,15 +59,21 @@ class Player: GKEntity {
         return component(ofType: SpriteComponent.self)!.node
     }
     
+    override func update(deltaTime seconds: TimeInterval) {
+        // TODO handle keyboard navigation as well
+        let lastTouch = component(ofType: TouchComponent.self)?.lastTouchLocation
+        updatePhysics(destination: lastTouch);
+    }
+    
     // Determines if the player's position should be updated
     private func shouldMove(currentPosition: CGPoint, newPosition: CGPoint) -> Bool {
         return abs(currentPosition.x - newPosition.x) > node.frame.width / 4 ||
             abs(currentPosition.y - newPosition.y) > node.frame.height / 4
     }
   
-    // TODO move to component
+    // TODO move to component?
     // Updates the player's position by moving towards the last touch made
-    func updatePhysics(destination: CGPoint?) {
+    private func updatePhysics(destination: CGPoint?) {
         if let newPosition = destination {
             let currentPosition = node.position
             if shouldMove(currentPosition: currentPosition, newPosition: newPosition) {

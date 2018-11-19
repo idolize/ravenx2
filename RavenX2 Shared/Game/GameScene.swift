@@ -13,7 +13,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var starfield: SKEmitterNode!
     var player: Player!
-    var lastTouch: UITouch?
     // Entity-component system
     var entityManager: EntityManager!
     
@@ -157,78 +156,49 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         self.setUpScene(view)
     }
-    
-    override func didSimulatePhysics() {
-        let touchPosition = lastTouch?.location(in: self)
-        player.updatePhysics(destination: touchPosition)
+
+    override func update(_ deltaTime: TimeInterval) {
+        entityManager.update(deltaTime)
     }
     
-    override func update(_ deltaTime: TimeInterval) {
-        // Called before each frame is rendered
-        entityManager.update(deltaTime)
+    override func didFinishUpdate() {
+        #if os(OSX)
+        Keyboard.sharedKeyboard.update()
+        #endif
     }
 }
 
 #if os(iOS)
+// Handle touch events
 extension GameScene {
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lastTouch = touches.first
+       entityManager.touchesBegan(touches, with: event)
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch: UITouch = touches.first {
-            let location = touch.location(in: self)
-            let prevLocation = touch.previousLocation(in: self)
-
-            let delta = ((location - prevLocation).normalized()).vector()
-
-            // TODO Show particles to indicate movement
-        }
-        lastTouch = touches.first
+        entityManager.touchesBegan(touches, with: event)
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lastTouch = nil
+        entityManager.touchesBegan(touches, with: event)
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lastTouch = nil
+        entityManager.touchesBegan(touches, with: event)
     }
-
-
 }
 #endif
-
 
 
 #if os(OSX)
+// Handle keyboard events
 extension GameScene {
-    
-//    override func update(currentTime: NSTimeInterval) {
-//        super.update(currentTime)
-//
-//        if (Keyboard.sharedKeyboard.justPressed(KeyCode.Space)) {
-//            // single key
-//        } else if (Keyboard.sharedKeyboard.pressed(KeyCode.Space, KeyCode.Return)) {
-//            // two keys
-//        } else if (Keyboard.sharedKeyboard.justReleased(KeyCode.Space, KeyCode.W, KeyCode.T, KeyCode.LeftShift)) {
-//            // many keys
-//        }
-//    }
-//
-//    override func didFinishUpdate() {
-//        Keyboard.sharedKeyboard.update()
-//    }
-//
-//    override func keyUp(theEvent: NSEvent) {
-//        Keyboard.sharedKeyboard.handleKey(theEvent, isDown: false)
-//    }
-//
-//    override func keyDown(theEvent: NSEvent) {
-//        Keyboard.sharedKeyboard.handleKey(theEvent, isDown: true)
-//    }
+    override func keyUp(theEvent: NSEvent) {
+        entityManager.handleKey(theEvent, isDown: false)
+    }
 
+    override func keyDown(theEvent: NSEvent) {
+        entityManager.handleKey(theEvent, isDown: true)
+    }
 }
 #endif
-

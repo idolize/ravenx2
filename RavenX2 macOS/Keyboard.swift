@@ -137,7 +137,7 @@ struct KeyState {
 
 class Keyboard {
     
-    static let sharedKeyboard = Keyboard()
+    static let globalKeyboard = Keyboard()
     
     var prev: KeyState
     var curr: KeyState

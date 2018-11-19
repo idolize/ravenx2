@@ -24,6 +24,8 @@
 		D53F472D21A127C900672A42 /* TeamComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472B21A127C900672A42 /* TeamComponent.swift */; };
 		D53F473021A133F000672A42 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472F21A133F000672A42 /* Projectile.swift */; };
 		D53F473121A133F000672A42 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F472F21A133F000672A42 /* Projectile.swift */; };
+		D554C71121A2332B00182716 /* TouchComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C71021A2332B00182716 /* TouchComponent.swift */; };
+		D554C71321A2334200182716 /* KeyboardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C71221A2334200182716 /* KeyboardComponent.swift */; };
 		D5AA288F219E408000FB8C2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA288E219E408000FB8C2B /* AppDelegate.swift */; };
 		D5AA2891219E408000FB8C2B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA2890219E408000FB8C2B /* GameViewController.swift */; };
 		D5AA2894219E408000FB8C2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5AA2892219E408000FB8C2B /* Main.storyboard */; };
@@ -64,6 +66,8 @@
 		D53F472821A1277300672A42 /* FiringComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiringComponent.swift; sourceTree = "<group>"; };
 		D53F472B21A127C900672A42 /* TeamComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamComponent.swift; sourceTree = "<group>"; };
 		D53F472F21A133F000672A42 /* Projectile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
+		D554C71021A2332B00182716 /* TouchComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchComponent.swift; sourceTree = "<group>"; };
+		D554C71221A2334200182716 /* KeyboardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardComponent.swift; sourceTree = "<group>"; };
 		D5AA2883219E407F00FB8C2B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		D5AA2885219E407F00FB8C2B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D5AA2886219E408000FB8C2B /* GameAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameAssets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				D53F470721A0EF5500672A42 /* SpriteComponent.swift */,
 				D53F472821A1277300672A42 /* FiringComponent.swift */,
 				D53F472B21A127C900672A42 /* TeamComponent.swift */,
+				D554C71021A2332B00182716 /* TouchComponent.swift */,
+				D554C71221A2334200182716 /* KeyboardComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				D53F472C21A127C900672A42 /* TeamComponent.swift in Sources */,
 				D53F472621A1228C00672A42 /* EntityManager.swift in Sources */,
 				D5AA28AB219E408000FB8C2B /* GameScene.swift in Sources */,
+				D554C71121A2332B00182716 /* TouchComponent.swift in Sources */,
 				D53F473021A133F000672A42 /* Projectile.swift in Sources */,
 				D5AA28D1219E77D500FB8C2B /* MenuScene.swift in Sources */,
 				D53F472221A1036900672A42 /* PhysicsType.swift in Sources */,
@@ -400,6 +407,7 @@
 				D5AA28D8219E87E500FB8C2B /* Keyboard.swift in Sources */,
 				D53F472321A1036900672A42 /* PhysicsType.swift in Sources */,
 				D5AA28A0219E408000FB8C2B /* AppDelegate.swift in Sources */,
+				D554C71321A2334200182716 /* KeyboardComponent.swift in Sources */,
 				D53F472A21A1277300672A42 /* FiringComponent.swift in Sources */,
 				D53F472D21A127C900672A42 /* TeamComponent.swift in Sources */,
 				D53F470121A0C96B00672A42 /* GeometryHelpers.swift in Sources */,
