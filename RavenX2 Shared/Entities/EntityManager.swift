@@ -2,27 +2,11 @@
 import SpriteKit
 import GameplayKit
 
-enum System {
-    case firing, touch, keyboard
-}
-
 class EntityManager {
     
     var entities = Set<GKEntity>()
     var toRemove = Set<GKEntity>()
     let scene: SKScene
-    
-    lazy var componentSystems: [System: GKComponentSystem] = {
-        var systems = [System: GKComponentSystem]()
-        systems[System.firing] = GKComponentSystem(componentClass: FiringComponent.self)
-        #if os(iOS)
-        systems[System.touch] = GKComponentSystem(componentClass: TouchComponent.self)
-        #endif
-        #if os(OSX)
-        systems[System.keyboard] = GKComponentSystem(componentClass: KeyboardComponent.self)
-        #endif
-        return systems
-    }()
     
     init(scene: SKScene) {
         self.scene = scene
@@ -30,10 +14,6 @@ class EntityManager {
     
     func add(_ entity: GKEntity) {
         entities.insert(entity)
-        
-        for componentSystem in componentSystems.values {
-            componentSystem.addComponent(foundIn: entity)
-        }
         
         if let spriteNode = entity.component(ofType: NodeComponent.self)?.node {
             scene.addChild(spriteNode)
@@ -50,30 +30,21 @@ class EntityManager {
     }
     
     func entitiesForTeam(_ team: Team) -> [GKEntity] {
-        return entities.compactMap{ entity in
+        return entities.filter{ entity in
             if let teamComponent = entity.component(ofType: TeamComponent.self) {
                 if teamComponent.team == team {
-                    return entity
+                    return true
                 }
             }
-            return nil
+            return false
         }
     }
     
     func update(_ deltaTime: CFTimeInterval) {
-        let componentSystemsFlat = componentSystems.values
-        for componentSystem in componentSystemsFlat {
-            componentSystem.update(deltaTime: deltaTime)
-        }
         for entity in entities {
             entity.update(deltaTime: deltaTime)
         }
         
-        for curRemove in toRemove {
-            for componentSystem in componentSystemsFlat {
-                componentSystem.removeComponent(foundIn: curRemove)
-            }
-        }
         toRemove.removeAll()
     }
 }
@@ -82,9 +53,13 @@ class EntityManager {
 #if os(iOS)
 // Handle touch events
 extension EntityManager {
+    // This could be optimized to manage touch stuff globally (similar to keyboard)
+    // instead of on each individual component
     private func performForAllTouchComponents(_ operation: (TouchComponent) -> Void) {
-        for case let component as TouchComponent in componentSystems[System.touch]?.components ?? [] {
-            operation(component)
+        for entity in entities {
+            if let touchComponent = entity.component(ofType: TouchComponent.self) {
+                operation(touchComponent)
+            }
         }
     }
     
@@ -118,8 +93,10 @@ extension EntityManager {
 // Handle keyboard events
 extension EntityManager {
     func handleKey(theEvent: NSEvent, isDown: Bool) {
-        for case let component as KeyboardComponent in componentSystems[System.keyboard]?.components ?? [] {
-            component.handleKey(theEvent, isDown: isDown)
+        for entity in entities {
+            if let keyboardComponent = entity.component(ofType: KeyboardComponent.self) {
+                component.handleKey(theEvent, isDown: isDown)
+            }
         }
     }
 }

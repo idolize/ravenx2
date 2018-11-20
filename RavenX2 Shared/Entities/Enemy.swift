@@ -11,8 +11,7 @@ import SpriteKit
 
 class Enemy: EntityWithSpriteComponent {
     init(position: CGPoint) {
-        let texture = SKTexture(imageNamed: "alien")
-        super.init(texture: texture, size: texture.size())
+        super.init(textureAtlas: TextureAsset.genericEnemyAtlas, maxHeight: 40)
         
         // TODO move physics to component?
         node.position = CGPoint(x: position.x + node.size.width, y: position.y)
@@ -25,7 +24,7 @@ class Enemy: EntityWithSpriteComponent {
         node.physicsBody = physicsBody
         
         // Move the enemy left
-        let animationDuration: TimeInterval = 6
+        let animationDuration: TimeInterval = 3
         var actionArray = [SKAction]()
         actionArray.append(SKAction.move(to: CGPoint(x: -node.size.width, y: position.y), duration: animationDuration))
         actionArray.append(SKAction.removeFromParent())

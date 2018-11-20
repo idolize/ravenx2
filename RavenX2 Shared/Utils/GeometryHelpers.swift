@@ -9,19 +9,18 @@
 import CoreGraphics
 
 class GeometryHelpers {
-    static func constrainSizeToWidth(_ size: CGSize, maxWidth: CGFloat) -> CGSize {
-        let origWidth = size.width;
-        if origWidth > maxWidth {
-            return CGSize(width: maxWidth, height: size.height * (maxWidth / origWidth))
+    static func constrainToSize(_ size: CGSize, maxWidth: CGFloat? = nil, maxHeight: CGFloat? = nil) -> CGSize {
+        var newSize = size
+        let origWidth = newSize.width;
+        if let maxWidthVal = maxWidth, origWidth > maxWidthVal {
+            newSize.width = maxWidthVal
+            newSize.height = newSize.height * (maxWidthVal / origWidth)
         }
-        return size
-    }
-    
-    static func constrainSizeToHeight(_ size: CGSize, maxHeight: CGFloat) -> CGSize {
-        let origHeight = size.width;
-        if origHeight > maxHeight {
-            return CGSize(width: size.width * (maxHeight / origHeight), height: maxHeight)
+        let origHeight = newSize.height;
+        if let maxHeightVal = maxHeight, origHeight > maxHeightVal {
+            newSize.height = maxHeightVal
+            newSize.width = newSize.width * (maxHeightVal / origHeight)
         }
-        return size
+        return newSize
     }
 }

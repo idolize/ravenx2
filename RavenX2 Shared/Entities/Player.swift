@@ -9,25 +9,18 @@
 import SceneKit
 import GameplayKit
 
-private let playerSpeed: CGFloat = 550.0
+private let playerSpeed: CGFloat = 450
+private let fingerWidth: CGFloat = 30
 
-class Player: EntityWithSpriteComponent {
+class Player: EntityWithSpriteComponent, TouchEventDelegate {
+    
     let entityManager: EntityManager
     
     init(entityManager: EntityManager, position: CGPoint, constraints: [SKConstraint]?) {
         self.entityManager = entityManager
-        // TODO move animation to component
-        let animatedAtlas = SKTextureAtlas(named: "HeroShip")
-        var frames: [SKTexture] = []
-        for i in 1...animatedAtlas.textureNames.count {
-            let textureName = "HeroShip\(i)"
-            frames.append(animatedAtlas.textureNamed(textureName))
-        }
-        let firstFrameTexture = frames[0]
-        let size = GeometryHelpers.constrainSizeToWidth(firstFrameTexture.size(), maxWidth: 50)
-        super.init(texture: firstFrameTexture, size: size)
+        super.init(textureAtlas: TextureAsset.heroShipAtlas, maxWidth: 60)
         
-        // TODO move physics to component
+        // TODO move physics to component?
         node.position = position
         let physicsBody = SKPhysicsBody(rectangleOf: node.size)
         physicsBody.categoryBitMask = PhysicsType.Player
@@ -35,18 +28,17 @@ class Player: EntityWithSpriteComponent {
         physicsBody.allowsRotation = false
         node.physicsBody = physicsBody
         node.constraints = constraints
-        node.run(SKAction.repeatForever(
-            SKAction.animate(with: frames,
-                             timePerFrame: 0.05,
-                             resize: false,
-                             restore: true)),
-                 withKey:"thruster")
-
-        // TODO Shooting should only happen when touch is down...
-        addComponent(FiringComponent(entityManager: entityManager))
+        node.zPosition = 10
+        
+        let emitter = SKEmitterNode(fileNamed: "Thruster")!
+        emitter.targetNode = entityManager.scene
+        emitter.position.x -= (node.size.width / 2) - 5
+        node.addChild(emitter)
         
         // TODO conditionally add this vs keyboard component
-        addComponent(TouchComponent())
+        addComponent(TouchComponent(self))
+        
+        addComponent(FiringComponent(entityManager: self.entityManager, firing: false))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,22 +46,27 @@ class Player: EntityWithSpriteComponent {
     }
     
     override func update(deltaTime seconds: TimeInterval) {
+        super.update(deltaTime: seconds)
+        let touchComponent = component(ofType: TouchComponent.self)
+        
         // TODO handle keyboard navigation as well
-        let lastTouch = component(ofType: TouchComponent.self)?.lastTouchLocation
+        let lastTouch = touchComponent?.lastTouchLocation
         updatePhysics(destination: lastTouch);
     }
     
-    // Determines if the player's position should be updated
+    // Avoids "jittering" from very slight movements while holding down a touch
     private func shouldMove(currentPosition: CGPoint, newPosition: CGPoint) -> Bool {
-        return abs(currentPosition.x - newPosition.x) > node.frame.width / 4 ||
-            abs(currentPosition.y - newPosition.y) > node.frame.height / 4
+        return abs(currentPosition.x - newPosition.x) > fingerWidth ||
+            abs(currentPosition.y - newPosition.y) > fingerWidth / 3
     }
   
     // Updates the player's position by moving towards the last touch made
     private func updatePhysics(destination: CGPoint?) {
-        if let newPosition = destination {
+        if let touchPos = destination {
+            let newPosition = CGPoint(x: touchPos.x + fingerWidth, y: touchPos.y)
             let currentPosition = node.position
             if shouldMove(currentPosition: currentPosition, newPosition: newPosition) {
+                // Avoid moving the player directly under the touch point
                 
                 let angle = atan2(currentPosition.y - newPosition.y, currentPosition.x - newPosition.x) + .pi
                 
@@ -82,6 +79,24 @@ class Player: EntityWithSpriteComponent {
             }
         }
         node.physicsBody!.isResting = true
+    }
+    
+    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, in scene: SKScene) {
+        // TODO use state machine for this
+        component(ofType: FiringComponent.self)?.isFiring = true
+    }
+    
+    func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?, in scene: SKScene) {
+    }
+    
+    func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?, in scene: SKScene) {
+        // TODO use state machine for this
+        component(ofType: FiringComponent.self)?.isFiring = false
+    }
+    
+    func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?, in scene: SKScene) {
+        // TODO use state machine for this
+        component(ofType: FiringComponent.self)?.isFiring = false
     }
     
 }

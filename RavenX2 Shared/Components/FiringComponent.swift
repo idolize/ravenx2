@@ -5,10 +5,14 @@ import GameplayKit
 class FiringComponent: GKComponent {
     
     var updateTime: TimeInterval = 0
+    var isFiring: Bool
     let entityManager: EntityManager
+    let firingRate: TimeInterval
     
-    init(entityManager: EntityManager) {
+    init(entityManager: EntityManager, firingRate: TimeInterval = 0.5, firing: Bool = true) {
         self.entityManager = entityManager
+        self.firingRate = firingRate
+        self.isFiring = firing
         super.init()
     }
     
@@ -17,10 +21,8 @@ class FiringComponent: GKComponent {
     }
     
     private func shoot() {
-        // TODO best way to handle sound effects?
-        // self.run(SKAction.playSoundFileNamed("torpedo.mp3", waitForCompletion: false))
-        
-        guard let selfNode = self.entity?.component(ofType: NodeComponent.self)?.node else {
+        guard isFiring == true,
+                let selfNode = self.entity?.component(ofType: NodeComponent.self)?.node else {
             // Can't shoot from something that has no location
             return
         }
@@ -32,9 +34,11 @@ class FiringComponent: GKComponent {
         let projectileNode = projectile.node
         projectileNode.zPosition = 1
         
-        let projectilePointsPerSecond = CGFloat(300)
+        let projectilePointsPerSecond = CGFloat(500)
         let projectileDistance = CGFloat(1000)
         let duration = projectileDistance / projectilePointsPerSecond
+        
+        projectile.playSound()
         
         projectileNode.run(SKAction.sequence([
             SKAction.moveBy(x: projectileDistance, y: 0, duration: TimeInterval(duration)),
@@ -48,11 +52,7 @@ class FiringComponent: GKComponent {
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
         
-        if updateTime == 0 {
-            updateTime = seconds
-        }
-        
-        if seconds - updateTime > 1 {
+        if seconds - updateTime > firingRate {
             shoot()
             updateTime = seconds
         }

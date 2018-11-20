@@ -34,6 +34,78 @@
 		D554C71F21A25D9B00182716 /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C71D21A25D9B00182716 /* NodeComponent.swift */; };
 		D554C72121A266BC00182716 /* EntityWithSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C72021A266BC00182716 /* EntityWithSpriteComponent.swift */; };
 		D554C72221A266BC00182716 /* EntityWithSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C72021A266BC00182716 /* EntityWithSpriteComponent.swift */; };
+		D554C75F21A27D9E00182716 /* BossOne.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75021A27D9D00182716 /* BossOne.atlas */; };
+		D554C76121A27D9E00182716 /* BossFour.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75121A27D9D00182716 /* BossFour.atlas */; };
+		D554C76221A27D9E00182716 /* SpaceShipFive.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75221A27D9D00182716 /* SpaceShipFive.atlas */; };
+		D554C76321A27D9E00182716 /* SpaceShipFive.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75221A27D9D00182716 /* SpaceShipFive.atlas */; };
+		D554C76421A27D9E00182716 /* SpaceShipSeven.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75321A27D9D00182716 /* SpaceShipSeven.atlas */; };
+		D554C76521A27D9E00182716 /* SpaceShipSeven.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75321A27D9D00182716 /* SpaceShipSeven.atlas */; };
+		D554C76621A27D9E00182716 /* SpaceShipNine.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75421A27D9D00182716 /* SpaceShipNine.atlas */; };
+		D554C76721A27D9E00182716 /* SpaceShipNine.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75421A27D9D00182716 /* SpaceShipNine.atlas */; };
+		D554C76921A27D9E00182716 /* BossThree.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75521A27D9D00182716 /* BossThree.atlas */; };
+		D554C76A21A27D9E00182716 /* SpaceShipThree.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75621A27D9D00182716 /* SpaceShipThree.atlas */; };
+		D554C76B21A27D9E00182716 /* SpaceShipThree.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75621A27D9D00182716 /* SpaceShipThree.atlas */; };
+		D554C76C21A27D9E00182716 /* SpaceShipSix.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75721A27D9D00182716 /* SpaceShipSix.atlas */; };
+		D554C76D21A27D9E00182716 /* SpaceShipSix.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75721A27D9D00182716 /* SpaceShipSix.atlas */; };
+		D554C76F21A27D9E00182716 /* BossTwo.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75821A27D9E00182716 /* BossTwo.atlas */; };
+		D554C77021A27D9E00182716 /* Rocket.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75921A27D9E00182716 /* Rocket.atlas */; };
+		D554C77121A27D9E00182716 /* Rocket.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75921A27D9E00182716 /* Rocket.atlas */; };
+		D554C77221A27D9E00182716 /* SpaceShipOne.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75A21A27D9E00182716 /* SpaceShipOne.atlas */; };
+		D554C77321A27D9E00182716 /* SpaceShipOne.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75A21A27D9E00182716 /* SpaceShipOne.atlas */; };
+		D554C77521A27D9E00182716 /* SpaceShipFour.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75B21A27D9E00182716 /* SpaceShipFour.atlas */; };
+		D554C77621A27D9E00182716 /* SpaceShipEight.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75C21A27D9E00182716 /* SpaceShipEight.atlas */; };
+		D554C77721A27D9E00182716 /* SpaceShipEight.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75C21A27D9E00182716 /* SpaceShipEight.atlas */; };
+		D554C77821A27D9E00182716 /* SpaceShipTwo.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75D21A27D9E00182716 /* SpaceShipTwo.atlas */; };
+		D554C77921A27D9E00182716 /* SpaceShipTwo.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C75D21A27D9E00182716 /* SpaceShipTwo.atlas */; };
+		D554C78721A27DD100182716 /* WhiteShootEffectTwo.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77B21A27DD000182716 /* WhiteShootEffectTwo.atlas */; };
+		D554C78821A27DD100182716 /* WhiteShootEffectTwo.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77B21A27DD000182716 /* WhiteShootEffectTwo.atlas */; };
+		D554C78921A27DD100182716 /* GreenBulletParticles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77C21A27DD000182716 /* GreenBulletParticles.atlas */; };
+		D554C78A21A27DD100182716 /* GreenBulletParticles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77C21A27DD000182716 /* GreenBulletParticles.atlas */; };
+		D554C78B21A27DD100182716 /* YellowShoot.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77D21A27DD000182716 /* YellowShoot.atlas */; };
+		D554C78C21A27DD100182716 /* YellowShoot.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77D21A27DD000182716 /* YellowShoot.atlas */; };
+		D554C78D21A27DD100182716 /* BigCollisionEffect.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77E21A27DD100182716 /* BigCollisionEffect.atlas */; };
+		D554C78E21A27DD100182716 /* BigCollisionEffect.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77E21A27DD100182716 /* BigCollisionEffect.atlas */; };
+		D554C78F21A27DD200182716 /* EnergyField.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77F21A27DD100182716 /* EnergyField.atlas */; };
+		D554C79021A27DD200182716 /* EnergyField.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C77F21A27DD100182716 /* EnergyField.atlas */; };
+		D554C79121A27DD200182716 /* Coin.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78021A27DD100182716 /* Coin.atlas */; };
+		D554C79221A27DD200182716 /* Coin.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78021A27DD100182716 /* Coin.atlas */; };
+		D554C79321A27DD200182716 /* GreenWhiteBullet.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78121A27DD100182716 /* GreenWhiteBullet.atlas */; };
+		D554C79421A27DD200182716 /* GreenWhiteBullet.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78121A27DD100182716 /* GreenWhiteBullet.atlas */; };
+		D554C79521A27DD200182716 /* WhiteShootEffect.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78221A27DD100182716 /* WhiteShootEffect.atlas */; };
+		D554C79621A27DD200182716 /* WhiteShootEffect.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78221A27DD100182716 /* WhiteShootEffect.atlas */; };
+		D554C79721A27DD200182716 /* GreenShoot.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78321A27DD100182716 /* GreenShoot.atlas */; };
+		D554C79821A27DD200182716 /* GreenShoot.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78321A27DD100182716 /* GreenShoot.atlas */; };
+		D554C79921A27DD200182716 /* Explosion.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78421A27DD100182716 /* Explosion.atlas */; };
+		D554C79A21A27DD200182716 /* Explosion.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78421A27DD100182716 /* Explosion.atlas */; };
+		D554C79B21A27DD200182716 /* RedBulletParticles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78521A27DD100182716 /* RedBulletParticles.atlas */; };
+		D554C79C21A27DD200182716 /* RedBulletParticles.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78521A27DD100182716 /* RedBulletParticles.atlas */; };
+		D554C79D21A27DD200182716 /* RedWhiteBullet.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78621A27DD100182716 /* RedWhiteBullet.atlas */; };
+		D554C79E21A27DD200182716 /* RedWhiteBullet.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D554C78621A27DD100182716 /* RedWhiteBullet.atlas */; };
+		D554C7A021A27E1700182716 /* Backgrounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D554C79F21A27E1700182716 /* Backgrounds.xcassets */; };
+		D554C7A121A27E1700182716 /* Backgrounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D554C79F21A27E1700182716 /* Backgrounds.xcassets */; };
+		D554C7B221A2809600182716 /* AnimatedSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7B121A2809600182716 /* AnimatedSpriteComponent.swift */; };
+		D554C7B321A2809600182716 /* AnimatedSpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7B121A2809600182716 /* AnimatedSpriteComponent.swift */; };
+		D554C7B521A283B100182716 /* TextureAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7B421A283B100182716 /* TextureAsset.swift */; };
+		D554C7B621A283B100182716 /* TextureAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7B421A283B100182716 /* TextureAsset.swift */; };
+		D554C7B821A2841B00182716 /* SoundAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7B721A2841B00182716 /* SoundAsset.swift */; };
+		D554C7B921A2841B00182716 /* SoundAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7B721A2841B00182716 /* SoundAsset.swift */; };
+		D554C7C421A2A3E600182716 /* CartoonExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D554C7C021A29E3100182716 /* CartoonExplosion.sks */; };
+		D554C7C621A2B04F00182716 /* TouchEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7C521A2B04F00182716 /* TouchEventDelegate.swift */; };
+		D554C7C721A2B04F00182716 /* TouchEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7C521A2B04F00182716 /* TouchEventDelegate.swift */; };
+		D5641EA921A3EDFE0029EB60 /* AnimatedEffectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5641EA821A3EDFE0029EB60 /* AnimatedEffectNode.swift */; };
+		D5641EAA21A3EDFE0029EB60 /* AnimatedEffectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5641EA821A3EDFE0029EB60 /* AnimatedEffectNode.swift */; };
+		D58D244821A3D09D00C94609 /* Thruster.sks in Resources */ = {isa = PBXBuildFile; fileRef = D58D244621A3D09D00C94609 /* Thruster.sks */; };
+		D58D244921A3D09D00C94609 /* Thruster.sks in Resources */ = {isa = PBXBuildFile; fileRef = D58D244621A3D09D00C94609 /* Thruster.sks */; };
+		D58D245121A3DB1000C94609 /* sfx_twoTone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244C21A3DB1000C94609 /* sfx_twoTone.mp3 */; };
+		D58D245221A3DB1000C94609 /* sfx_twoTone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244C21A3DB1000C94609 /* sfx_twoTone.mp3 */; };
+		D58D245321A3DB1000C94609 /* sfx_zap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244D21A3DB1000C94609 /* sfx_zap.mp3 */; };
+		D58D245421A3DB1000C94609 /* sfx_zap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244D21A3DB1000C94609 /* sfx_zap.mp3 */; };
+		D58D245521A3DB1000C94609 /* sfx_shieldDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244E21A3DB1000C94609 /* sfx_shieldDown.mp3 */; };
+		D58D245621A3DB1000C94609 /* sfx_shieldDown.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244E21A3DB1000C94609 /* sfx_shieldDown.mp3 */; };
+		D58D245721A3DB1000C94609 /* sfx_shieldUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244F21A3DB1000C94609 /* sfx_shieldUp.mp3 */; };
+		D58D245821A3DB1000C94609 /* sfx_shieldUp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244F21A3DB1000C94609 /* sfx_shieldUp.mp3 */; };
+		D58D245921A3DB1000C94609 /* sfx_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D245021A3DB1000C94609 /* sfx_lose.mp3 */; };
+		D58D245A21A3DB1000C94609 /* sfx_lose.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D245021A3DB1000C94609 /* sfx_lose.mp3 */; };
 		D5AA288F219E408000FB8C2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA288E219E408000FB8C2B /* AppDelegate.swift */; };
 		D5AA2891219E408000FB8C2B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AA2890219E408000FB8C2B /* GameViewController.swift */; };
 		D5AA2894219E408000FB8C2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5AA2892219E408000FB8C2B /* Main.storyboard */; };
@@ -80,6 +152,46 @@
 		D554C71A21A25A8A00182716 /* Explosion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explosion.swift; sourceTree = "<group>"; };
 		D554C71D21A25D9B00182716 /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		D554C72021A266BC00182716 /* EntityWithSpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityWithSpriteComponent.swift; sourceTree = "<group>"; };
+		D554C72321A26F4900182716 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D554C75021A27D9D00182716 /* BossOne.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BossOne.atlas; sourceTree = "<group>"; };
+		D554C75121A27D9D00182716 /* BossFour.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BossFour.atlas; sourceTree = "<group>"; };
+		D554C75221A27D9D00182716 /* SpaceShipFive.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipFive.atlas; sourceTree = "<group>"; };
+		D554C75321A27D9D00182716 /* SpaceShipSeven.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipSeven.atlas; sourceTree = "<group>"; };
+		D554C75421A27D9D00182716 /* SpaceShipNine.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipNine.atlas; sourceTree = "<group>"; };
+		D554C75521A27D9D00182716 /* BossThree.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BossThree.atlas; sourceTree = "<group>"; };
+		D554C75621A27D9D00182716 /* SpaceShipThree.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipThree.atlas; sourceTree = "<group>"; };
+		D554C75721A27D9D00182716 /* SpaceShipSix.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipSix.atlas; sourceTree = "<group>"; };
+		D554C75821A27D9E00182716 /* BossTwo.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BossTwo.atlas; sourceTree = "<group>"; };
+		D554C75921A27D9E00182716 /* Rocket.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Rocket.atlas; sourceTree = "<group>"; };
+		D554C75A21A27D9E00182716 /* SpaceShipOne.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipOne.atlas; sourceTree = "<group>"; };
+		D554C75B21A27D9E00182716 /* SpaceShipFour.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipFour.atlas; sourceTree = "<group>"; };
+		D554C75C21A27D9E00182716 /* SpaceShipEight.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipEight.atlas; sourceTree = "<group>"; };
+		D554C75D21A27D9E00182716 /* SpaceShipTwo.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SpaceShipTwo.atlas; sourceTree = "<group>"; };
+		D554C77B21A27DD000182716 /* WhiteShootEffectTwo.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WhiteShootEffectTwo.atlas; sourceTree = "<group>"; };
+		D554C77C21A27DD000182716 /* GreenBulletParticles.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GreenBulletParticles.atlas; sourceTree = "<group>"; };
+		D554C77D21A27DD000182716 /* YellowShoot.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = YellowShoot.atlas; sourceTree = "<group>"; };
+		D554C77E21A27DD100182716 /* BigCollisionEffect.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BigCollisionEffect.atlas; sourceTree = "<group>"; };
+		D554C77F21A27DD100182716 /* EnergyField.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = EnergyField.atlas; sourceTree = "<group>"; };
+		D554C78021A27DD100182716 /* Coin.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Coin.atlas; sourceTree = "<group>"; };
+		D554C78121A27DD100182716 /* GreenWhiteBullet.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GreenWhiteBullet.atlas; sourceTree = "<group>"; };
+		D554C78221A27DD100182716 /* WhiteShootEffect.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WhiteShootEffect.atlas; sourceTree = "<group>"; };
+		D554C78321A27DD100182716 /* GreenShoot.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GreenShoot.atlas; sourceTree = "<group>"; };
+		D554C78421A27DD100182716 /* Explosion.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Explosion.atlas; sourceTree = "<group>"; };
+		D554C78521A27DD100182716 /* RedBulletParticles.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = RedBulletParticles.atlas; sourceTree = "<group>"; };
+		D554C78621A27DD100182716 /* RedWhiteBullet.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = RedWhiteBullet.atlas; sourceTree = "<group>"; };
+		D554C79F21A27E1700182716 /* Backgrounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Backgrounds.xcassets; sourceTree = "<group>"; };
+		D554C7B121A2809600182716 /* AnimatedSpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSpriteComponent.swift; sourceTree = "<group>"; };
+		D554C7B421A283B100182716 /* TextureAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureAsset.swift; sourceTree = "<group>"; };
+		D554C7B721A2841B00182716 /* SoundAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundAsset.swift; sourceTree = "<group>"; };
+		D554C7C021A29E3100182716 /* CartoonExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CartoonExplosion.sks; sourceTree = "<group>"; };
+		D554C7C521A2B04F00182716 /* TouchEventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEventDelegate.swift; sourceTree = "<group>"; };
+		D5641EA821A3EDFE0029EB60 /* AnimatedEffectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedEffectNode.swift; sourceTree = "<group>"; };
+		D58D244621A3D09D00C94609 /* Thruster.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Thruster.sks; sourceTree = "<group>"; };
+		D58D244C21A3DB1000C94609 /* sfx_twoTone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_twoTone.mp3; sourceTree = "<group>"; };
+		D58D244D21A3DB1000C94609 /* sfx_zap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_zap.mp3; sourceTree = "<group>"; };
+		D58D244E21A3DB1000C94609 /* sfx_shieldDown.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_shieldDown.mp3; sourceTree = "<group>"; };
+		D58D244F21A3DB1000C94609 /* sfx_shieldUp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_shieldUp.mp3; sourceTree = "<group>"; };
+		D58D245021A3DB1000C94609 /* sfx_lose.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_lose.mp3; sourceTree = "<group>"; };
 		D5AA2883219E407F00FB8C2B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		D5AA2885219E407F00FB8C2B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D5AA2886219E408000FB8C2B /* GameAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GameAssets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +251,8 @@
 				D554C71021A2332B00182716 /* TouchComponent.swift */,
 				D554C71221A2334200182716 /* KeyboardComponent.swift */,
 				D554C71D21A25D9B00182716 /* NodeComponent.swift */,
+				D554C7B121A2809600182716 /* AnimatedSpriteComponent.swift */,
+				D554C7C521A2B04F00182716 /* TouchEventDelegate.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -176,10 +290,54 @@
 		D53F473321A1368D00672A42 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D554C7B421A283B100182716 /* TextureAsset.swift */,
+				D554C77A21A27DBF00182716 /* Bullets & Explosions */,
+				D554C74E21A27D8C00182716 /* Enemies */,
 				D5AA2886219E408000FB8C2B /* GameAssets.xcassets */,
 				D53F46F9219FFB9F00672A42 /* HeroShip.atlas */,
+				D554C79F21A27E1700182716 /* Backgrounds.xcassets */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		D554C74E21A27D8C00182716 /* Enemies */ = {
+			isa = PBXGroup;
+			children = (
+				D554C75121A27D9D00182716 /* BossFour.atlas */,
+				D554C75021A27D9D00182716 /* BossOne.atlas */,
+				D554C75521A27D9D00182716 /* BossThree.atlas */,
+				D554C75821A27D9E00182716 /* BossTwo.atlas */,
+				D554C75921A27D9E00182716 /* Rocket.atlas */,
+				D554C75C21A27D9E00182716 /* SpaceShipEight.atlas */,
+				D554C75221A27D9D00182716 /* SpaceShipFive.atlas */,
+				D554C75B21A27D9E00182716 /* SpaceShipFour.atlas */,
+				D554C75421A27D9D00182716 /* SpaceShipNine.atlas */,
+				D554C75A21A27D9E00182716 /* SpaceShipOne.atlas */,
+				D554C75321A27D9D00182716 /* SpaceShipSeven.atlas */,
+				D554C75721A27D9D00182716 /* SpaceShipSix.atlas */,
+				D554C75621A27D9D00182716 /* SpaceShipThree.atlas */,
+				D554C75D21A27D9E00182716 /* SpaceShipTwo.atlas */,
+			);
+			path = Enemies;
+			sourceTree = "<group>";
+		};
+		D554C77A21A27DBF00182716 /* Bullets & Explosions */ = {
+			isa = PBXGroup;
+			children = (
+				D554C77E21A27DD100182716 /* BigCollisionEffect.atlas */,
+				D554C78021A27DD100182716 /* Coin.atlas */,
+				D554C77F21A27DD100182716 /* EnergyField.atlas */,
+				D554C78421A27DD100182716 /* Explosion.atlas */,
+				D554C77C21A27DD000182716 /* GreenBulletParticles.atlas */,
+				D554C78321A27DD100182716 /* GreenShoot.atlas */,
+				D554C78121A27DD100182716 /* GreenWhiteBullet.atlas */,
+				D554C78521A27DD100182716 /* RedBulletParticles.atlas */,
+				D554C78621A27DD100182716 /* RedWhiteBullet.atlas */,
+				D554C78221A27DD100182716 /* WhiteShootEffect.atlas */,
+				D554C77B21A27DD000182716 /* WhiteShootEffectTwo.atlas */,
+				D554C77D21A27DD000182716 /* YellowShoot.atlas */,
+			);
+			path = "Bullets & Explosions";
 			sourceTree = "<group>";
 		};
 		D5AA287D219E407F00FB8C2B = {
@@ -189,6 +347,7 @@
 				D5AA288D219E408000FB8C2B /* RavenX2 iOS */,
 				D5AA289E219E408000FB8C2B /* RavenX2 macOS */,
 				D5AA288C219E408000FB8C2B /* Products */,
+				D554C72321A26F4900182716 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,6 +405,7 @@
 				D53F472121A1036900672A42 /* PhysicsType.swift */,
 				D5AA2885219E407F00FB8C2B /* GameScene.swift */,
 				D554C71721A2506A00182716 /* EnemyManager.swift */,
+				D5641EA821A3EDFE0029EB60 /* AnimatedEffectNode.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -253,6 +413,12 @@
 		D5AA28CB219E745600FB8C2B /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				D554C7B721A2841B00182716 /* SoundAsset.swift */,
+				D58D245021A3DB1000C94609 /* sfx_lose.mp3 */,
+				D58D244E21A3DB1000C94609 /* sfx_shieldDown.mp3 */,
+				D58D244F21A3DB1000C94609 /* sfx_shieldUp.mp3 */,
+				D58D244C21A3DB1000C94609 /* sfx_twoTone.mp3 */,
+				D58D244D21A3DB1000C94609 /* sfx_zap.mp3 */,
 				D5AA28B9219E49F000FB8C2B /* explosion.mp3 */,
 				D5AA28B8219E49F000FB8C2B /* torpedo.mp3 */,
 			);
@@ -263,7 +429,9 @@
 			isa = PBXGroup;
 			children = (
 				D5AA28C2219E4A8E00FB8C2B /* Explosion.sks */,
+				D554C7C021A29E3100182716 /* CartoonExplosion.sks */,
 				D5AA28C1219E4A8E00FB8C2B /* Starfield.sks */,
+				D58D244621A3D09D00C94609 /* Thruster.sks */,
 			);
 			path = Emitters;
 			sourceTree = "<group>";
@@ -356,16 +524,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D554C76221A27D9E00182716 /* SpaceShipFive.atlas in Resources */,
 				D5AA2894219E408000FB8C2B /* Main.storyboard in Resources */,
+				D554C76C21A27D9E00182716 /* SpaceShipSix.atlas in Resources */,
 				D5AA28C3219E4A8E00FB8C2B /* Starfield.sks in Resources */,
+				D58D245721A3DB1000C94609 /* sfx_shieldUp.mp3 in Resources */,
 				D5AA28A7219E408000FB8C2B /* Actions.sks in Resources */,
+				D58D245121A3DB1000C94609 /* sfx_twoTone.mp3 in Resources */,
+				D554C7A021A27E1700182716 /* Backgrounds.xcassets in Resources */,
+				D554C77821A27D9E00182716 /* SpaceShipTwo.atlas in Resources */,
+				D58D245921A3DB1000C94609 /* sfx_lose.mp3 in Resources */,
+				D554C79121A27DD200182716 /* Coin.atlas in Resources */,
 				D5AA2897219E408000FB8C2B /* LaunchScreen.storyboard in Resources */,
+				D554C79B21A27DD200182716 /* RedBulletParticles.atlas in Resources */,
+				D554C79321A27DD200182716 /* GreenWhiteBullet.atlas in Resources */,
+				D554C77021A27D9E00182716 /* Rocket.atlas in Resources */,
+				D554C78D21A27DD100182716 /* BigCollisionEffect.atlas in Resources */,
+				D554C79921A27DD200182716 /* Explosion.atlas in Resources */,
+				D554C78B21A27DD100182716 /* YellowShoot.atlas in Resources */,
+				D554C78921A27DD100182716 /* GreenBulletParticles.atlas in Resources */,
+				D554C78F21A27DD200182716 /* EnergyField.atlas in Resources */,
+				D554C76421A27D9E00182716 /* SpaceShipSeven.atlas in Resources */,
 				D5AA28BC219E49F000FB8C2B /* explosion.mp3 in Resources */,
+				D58D245321A3DB1000C94609 /* sfx_zap.mp3 in Resources */,
+				D554C79521A27DD200182716 /* WhiteShootEffect.atlas in Resources */,
+				D554C76621A27D9E00182716 /* SpaceShipNine.atlas in Resources */,
+				D554C78721A27DD100182716 /* WhiteShootEffectTwo.atlas in Resources */,
 				D5AA28BA219E49F000FB8C2B /* torpedo.mp3 in Resources */,
 				D53F46FA219FFB9F00672A42 /* HeroShip.atlas in Resources */,
+				D554C77221A27D9E00182716 /* SpaceShipOne.atlas in Resources */,
+				D554C79721A27DD200182716 /* GreenShoot.atlas in Resources */,
 				D5AA28AD219E408000FB8C2B /* GameAssets.xcassets in Resources */,
+				D554C76A21A27D9E00182716 /* SpaceShipThree.atlas in Resources */,
+				D58D245521A3DB1000C94609 /* sfx_shieldDown.mp3 in Resources */,
+				D554C77621A27D9E00182716 /* SpaceShipEight.atlas in Resources */,
 				D5AA28CE219E74AB00FB8C2B /* MenuScene.sks in Resources */,
+				D554C7C421A2A3E600182716 /* CartoonExplosion.sks in Resources */,
 				D5AA28C5219E4A8E00FB8C2B /* Explosion.sks in Resources */,
+				D58D244821A3D09D00C94609 /* Thruster.sks in Resources */,
+				D554C79D21A27DD200182716 /* RedWhiteBullet.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,14 +570,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D554C76721A27D9E00182716 /* SpaceShipNine.atlas in Resources */,
+				D554C79E21A27DD200182716 /* RedWhiteBullet.atlas in Resources */,
+				D554C78821A27DD100182716 /* WhiteShootEffectTwo.atlas in Resources */,
+				D554C79C21A27DD200182716 /* RedBulletParticles.atlas in Resources */,
+				D58D245821A3DB1000C94609 /* sfx_shieldUp.mp3 in Resources */,
+				D554C76F21A27D9E00182716 /* BossTwo.atlas in Resources */,
+				D554C77521A27D9E00182716 /* SpaceShipFour.atlas in Resources */,
 				D5AA28C4219E4A8E00FB8C2B /* Starfield.sks in Resources */,
+				D554C78A21A27DD100182716 /* GreenBulletParticles.atlas in Resources */,
 				D5AA28BD219E49F000FB8C2B /* explosion.mp3 in Resources */,
+				D554C77921A27D9E00182716 /* SpaceShipTwo.atlas in Resources */,
+				D554C75F21A27D9E00182716 /* BossOne.atlas in Resources */,
+				D554C77121A27D9E00182716 /* Rocket.atlas in Resources */,
 				D5AA28BB219E49F000FB8C2B /* torpedo.mp3 in Resources */,
+				D554C76921A27D9E00182716 /* BossThree.atlas in Resources */,
+				D58D245221A3DB1000C94609 /* sfx_twoTone.mp3 in Resources */,
+				D554C7A121A27E1700182716 /* Backgrounds.xcassets in Resources */,
+				D554C76521A27D9E00182716 /* SpaceShipSeven.atlas in Resources */,
 				D5AA28A5219E408000FB8C2B /* Main.storyboard in Resources */,
+				D554C79421A27DD200182716 /* GreenWhiteBullet.atlas in Resources */,
+				D554C76B21A27D9E00182716 /* SpaceShipThree.atlas in Resources */,
+				D554C77721A27D9E00182716 /* SpaceShipEight.atlas in Resources */,
+				D554C76D21A27D9E00182716 /* SpaceShipSix.atlas in Resources */,
+				D554C79621A27DD200182716 /* WhiteShootEffect.atlas in Resources */,
+				D554C79A21A27DD200182716 /* Explosion.atlas in Resources */,
 				D5AA28C6219E4A8E00FB8C2B /* Explosion.sks in Resources */,
+				D554C76121A27D9E00182716 /* BossFour.atlas in Resources */,
+				D554C78C21A27DD100182716 /* YellowShoot.atlas in Resources */,
 				D5AA28AE219E408000FB8C2B /* GameAssets.xcassets in Resources */,
+				D554C77321A27D9E00182716 /* SpaceShipOne.atlas in Resources */,
+				D554C78E21A27DD100182716 /* BigCollisionEffect.atlas in Resources */,
+				D554C79821A27DD200182716 /* GreenShoot.atlas in Resources */,
+				D58D244921A3D09D00C94609 /* Thruster.sks in Resources */,
+				D58D245421A3DB1000C94609 /* sfx_zap.mp3 in Resources */,
 				D5AA28A8219E408000FB8C2B /* Actions.sks in Resources */,
+				D58D245621A3DB1000C94609 /* sfx_shieldDown.mp3 in Resources */,
+				D554C76321A27D9E00182716 /* SpaceShipFive.atlas in Resources */,
 				D5AA28CF219E74AB00FB8C2B /* MenuScene.sks in Resources */,
+				D58D245A21A3DB1000C94609 /* sfx_lose.mp3 in Resources */,
+				D554C79221A27DD200182716 /* Coin.atlas in Resources */,
+				D554C79021A27DD200182716 /* EnergyField.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,11 +622,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D53F472C21A127C900672A42 /* TeamComponent.swift in Sources */,
+				D554C7B521A283B100182716 /* TextureAsset.swift in Sources */,
 				D53F472621A1228C00672A42 /* EntityManager.swift in Sources */,
 				D5AA28AB219E408000FB8C2B /* GameScene.swift in Sources */,
 				D554C71121A2332B00182716 /* TouchComponent.swift in Sources */,
+				D5641EA921A3EDFE0029EB60 /* AnimatedEffectNode.swift in Sources */,
 				D53F473021A133F000672A42 /* Projectile.swift in Sources */,
 				D554C72121A266BC00182716 /* EntityWithSpriteComponent.swift in Sources */,
+				D554C7C621A2B04F00182716 /* TouchEventDelegate.swift in Sources */,
 				D554C71E21A25D9B00182716 /* NodeComponent.swift in Sources */,
 				D5AA28D1219E77D500FB8C2B /* MenuScene.swift in Sources */,
 				D554C71821A2506A00182716 /* EnemyManager.swift in Sources */,
@@ -405,8 +638,10 @@
 				D5AA2891219E408000FB8C2B /* GameViewController.swift in Sources */,
 				D5AA28D4219E7B9500FB8C2B /* VectorMath.swift in Sources */,
 				D554C71B21A25A8A00182716 /* Explosion.swift in Sources */,
+				D554C7B221A2809600182716 /* AnimatedSpriteComponent.swift in Sources */,
 				D554C71521A24A6400182716 /* Enemy.swift in Sources */,
 				D53F46FC219FFC3500672A42 /* Player.swift in Sources */,
+				D554C7B821A2841B00182716 /* SoundAsset.swift in Sources */,
 				D5AA288F219E408000FB8C2B /* AppDelegate.swift in Sources */,
 				D53F470021A0C96B00672A42 /* GeometryHelpers.swift in Sources */,
 			);
@@ -421,14 +656,19 @@
 				D5AA28AC219E408000FB8C2B /* GameScene.swift in Sources */,
 				D5AA28D2219E77D500FB8C2B /* MenuScene.swift in Sources */,
 				D554C71621A24A6400182716 /* Enemy.swift in Sources */,
+				D554C7B921A2841B00182716 /* SoundAsset.swift in Sources */,
 				D53F473121A133F000672A42 /* Projectile.swift in Sources */,
 				D5AA28A2219E408000FB8C2B /* GameViewController.swift in Sources */,
 				D5AA28D5219E7B9500FB8C2B /* VectorMath.swift in Sources */,
+				D554C7C721A2B04F00182716 /* TouchEventDelegate.swift in Sources */,
 				D53F46FD219FFC3500672A42 /* Player.swift in Sources */,
+				D554C7B321A2809600182716 /* AnimatedSpriteComponent.swift in Sources */,
 				D554C71F21A25D9B00182716 /* NodeComponent.swift in Sources */,
 				D5AA28D8219E87E500FB8C2B /* Keyboard.swift in Sources */,
 				D53F472321A1036900672A42 /* PhysicsType.swift in Sources */,
 				D5AA28A0219E408000FB8C2B /* AppDelegate.swift in Sources */,
+				D554C7B621A283B100182716 /* TextureAsset.swift in Sources */,
+				D5641EAA21A3EDFE0029EB60 /* AnimatedEffectNode.swift in Sources */,
 				D554C71321A2334200182716 /* KeyboardComponent.swift in Sources */,
 				D554C71C21A25A8A00182716 /* Explosion.swift in Sources */,
 				D53F472A21A1277300672A42 /* FiringComponent.swift in Sources */,

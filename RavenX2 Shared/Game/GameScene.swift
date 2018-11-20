@@ -11,7 +11,6 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var starfield: SKEmitterNode!
     var player: Player!
     // Entity-component system
     var entityManager: EntityManager!
@@ -31,29 +30,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Set the scale mode to scale to fit the window
         scene.scaleMode = .resizeFill
         // For Debug Use only
-        view.showsPhysics = true
+        view.showsPhysics = false
         return scene
     }
     
     func setUpScene(_ view: SKView) {
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        self.physicsWorld.contactDelegate = self
+        backgroundColor = SKColor.init(red: 0.2, green: 0, blue: 0.05, alpha: 1)
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
         
         // Score
         scoreLabel = SKLabelNode(text: "Score: 0")
         scoreLabel.position = CGPoint(x: 100, y: self.frame.size.height - 60)
-        scoreLabel.fontName = "AmericanTypewriter-Bold"
-        scoreLabel.fontSize = 36
-        scoreLabel.fontColor = SKColor.white
+        scoreLabel.fontName = "KohinoorBangla-Semibold"
+        scoreLabel.fontSize = 38
+        scoreLabel.fontColor = SKColor.red
+        scoreLabel.alpha = 0.3
         score = 0
-        self.addChild(scoreLabel)
+        addChild(scoreLabel)
         
         // Background
-        starfield = SKEmitterNode(fileNamed: "Starfield")
-        starfield.position = CGPoint(x: self.size.width / 2, y: self.size.height)
+        // TODO make a class for this
+        let starfield = SKEmitterNode(fileNamed: "Starfield")!
+        starfield.position = CGPoint(x: self.size.width, y: self.size.height / 2)
         starfield.advanceSimulationTime(10)
-        self.addChild(starfield)
-        starfield.zPosition = -1
+        addChild(starfield)
+        starfield.zPosition = -2
+        let starfield2 = SKEmitterNode(fileNamed: "Starfield")!
+        starfield2.particleBirthRate = starfield.particleBirthRate / 3
+        starfield2.particleColorSequence = nil
+        starfield2.particleColor = SKColor.orange
+        starfield2.particleAlpha = CGFloat.maximum(starfield.particleAlpha * 2, 0.7)
+        starfield2.position = starfield.position
+        starfield2.particleSpeed = starfield.particleSpeed * 2
+        starfield2.particleScale = starfield.particleScale * 2
+        starfield2.advanceSimulationTime(9)
+        addChild(starfield2)
+        starfield2.zPosition = starfield.zPosition + 1
       
         // Create entity manager
         entityManager = EntityManager(scene: self)
@@ -124,15 +137,15 @@ extension GameScene {
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        entityManager.touchesBegan(touches, with: event)
+        entityManager.touchesMoved(touches, with: event)
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        entityManager.touchesBegan(touches, with: event)
+        entityManager.touchesEnded(touches, with: event)
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        entityManager.touchesBegan(touches, with: event)
+        entityManager.touchesCancelled(touches, with: event)
     }
 }
 #endif
