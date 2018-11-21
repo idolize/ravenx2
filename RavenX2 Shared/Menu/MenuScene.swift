@@ -8,15 +8,11 @@
 
 import SpriteKit
 
-class MenuScene: SKScene {
+class MenuScene: SceneFromFile {
     
-    var starfield: SKEmitterNode!
     var newGameButtonNode: SKSpriteNode!
     
     override func didMove(to view: SKView) {
-        starfield = self.childNode(withName: "starfield") as? SKEmitterNode
-        starfield.advanceSimulationTime(10)
-        
         newGameButtonNode = self.childNode(withName: "newGameButton") as? SKSpriteNode
         
     }
@@ -26,9 +22,7 @@ class MenuScene: SKScene {
         if let location = touch?.location(in: self) {
             let nodesArray = self.nodes(at: location)
             if nodesArray.first?.name == "newGameButton" {
-                let transition = SKTransition.flipHorizontal(withDuration: 0.5)
-                let gameScene = GameScene.newGameScene(self.view!)
-                self.view?.presentScene(gameScene, transition: transition)
+                sceneState.enter(GameSceneState.self)
             }
             
         }

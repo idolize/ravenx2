@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: BaseScene, SKPhysicsContactDelegate {
     
     var player: Player!
     // Entity-component system
@@ -24,15 +24,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     var gameTimer: Timer!
-    
-    class func newGameScene(_ view: SKView) -> GameScene {
-        let scene = GameScene(size: view.bounds.size)
-        // Set the scale mode to scale to fit the window
-        scene.scaleMode = .resizeFill
-        // For Debug Use only
-        view.showsPhysics = false
-        return scene
-    }
     
     func setUpScene(_ view: SKView) {
         backgroundColor = SKColor.init(red: 0.2, green: 0, blue: 0.05, alpha: 1)

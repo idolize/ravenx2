@@ -34,7 +34,7 @@ class Explosion: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func playSound() {
+    private func playSound() {
         node.run(SoundAsset.explosion)
     }
 }

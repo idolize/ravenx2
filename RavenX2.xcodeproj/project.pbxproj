@@ -94,6 +94,10 @@
 		D554C7C721A2B04F00182716 /* TouchEventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D554C7C521A2B04F00182716 /* TouchEventDelegate.swift */; };
 		D5641EA921A3EDFE0029EB60 /* AnimatedEffectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5641EA821A3EDFE0029EB60 /* AnimatedEffectNode.swift */; };
 		D5641EAA21A3EDFE0029EB60 /* AnimatedEffectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5641EA821A3EDFE0029EB60 /* AnimatedEffectNode.swift */; };
+		D5641EAC21A4FDAF0029EB60 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5641EAB21A4FDAF0029EB60 /* GameState.swift */; };
+		D5641EAD21A4FDAF0029EB60 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5641EAB21A4FDAF0029EB60 /* GameState.swift */; };
+		D5641EAF21A50F780029EB60 /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5641EAE21A50F780029EB60 /* Scenes.swift */; };
+		D5641EB021A50F780029EB60 /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5641EAE21A50F780029EB60 /* Scenes.swift */; };
 		D58D244821A3D09D00C94609 /* Thruster.sks in Resources */ = {isa = PBXBuildFile; fileRef = D58D244621A3D09D00C94609 /* Thruster.sks */; };
 		D58D244921A3D09D00C94609 /* Thruster.sks in Resources */ = {isa = PBXBuildFile; fileRef = D58D244621A3D09D00C94609 /* Thruster.sks */; };
 		D58D245121A3DB1000C94609 /* sfx_twoTone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D58D244C21A3DB1000C94609 /* sfx_twoTone.mp3 */; };
@@ -186,6 +190,8 @@
 		D554C7C021A29E3100182716 /* CartoonExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CartoonExplosion.sks; sourceTree = "<group>"; };
 		D554C7C521A2B04F00182716 /* TouchEventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchEventDelegate.swift; sourceTree = "<group>"; };
 		D5641EA821A3EDFE0029EB60 /* AnimatedEffectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedEffectNode.swift; sourceTree = "<group>"; };
+		D5641EAB21A4FDAF0029EB60 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		D5641EAE21A50F780029EB60 /* Scenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
 		D58D244621A3D09D00C94609 /* Thruster.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Thruster.sks; sourceTree = "<group>"; };
 		D58D244C21A3DB1000C94609 /* sfx_twoTone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_twoTone.mp3; sourceTree = "<group>"; };
 		D58D244D21A3DB1000C94609 /* sfx_zap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_zap.mp3; sourceTree = "<group>"; };
@@ -362,6 +368,8 @@
 				D5AA28CC219E745E00FB8C2B /* Emitters */,
 				D5AA28CA219E744E00FB8C2B /* Game */,
 				D53F473221A1367400672A42 /* Assets */,
+				D5641EAB21A4FDAF0029EB60 /* GameState.swift */,
+				D5641EAE21A50F780029EB60 /* Scenes.swift */,
 			);
 			path = "RavenX2 Shared";
 			sourceTree = "<group>";
@@ -623,6 +631,7 @@
 			files = (
 				D53F472C21A127C900672A42 /* TeamComponent.swift in Sources */,
 				D554C7B521A283B100182716 /* TextureAsset.swift in Sources */,
+				D5641EAF21A50F780029EB60 /* Scenes.swift in Sources */,
 				D53F472621A1228C00672A42 /* EntityManager.swift in Sources */,
 				D5AA28AB219E408000FB8C2B /* GameScene.swift in Sources */,
 				D554C71121A2332B00182716 /* TouchComponent.swift in Sources */,
@@ -643,6 +652,7 @@
 				D53F46FC219FFC3500672A42 /* Player.swift in Sources */,
 				D554C7B821A2841B00182716 /* SoundAsset.swift in Sources */,
 				D5AA288F219E408000FB8C2B /* AppDelegate.swift in Sources */,
+				D5641EAC21A4FDAF0029EB60 /* GameState.swift in Sources */,
 				D53F470021A0C96B00672A42 /* GeometryHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,6 +665,7 @@
 				D53F472721A1228C00672A42 /* EntityManager.swift in Sources */,
 				D5AA28AC219E408000FB8C2B /* GameScene.swift in Sources */,
 				D5AA28D2219E77D500FB8C2B /* MenuScene.swift in Sources */,
+				D5641EB021A50F780029EB60 /* Scenes.swift in Sources */,
 				D554C71621A24A6400182716 /* Enemy.swift in Sources */,
 				D554C7B921A2841B00182716 /* SoundAsset.swift in Sources */,
 				D53F473121A133F000672A42 /* Projectile.swift in Sources */,
@@ -673,6 +684,7 @@
 				D554C71C21A25A8A00182716 /* Explosion.swift in Sources */,
 				D53F472A21A1277300672A42 /* FiringComponent.swift in Sources */,
 				D554C71921A2506A00182716 /* EnemyManager.swift in Sources */,
+				D5641EAD21A4FDAF0029EB60 /* GameState.swift in Sources */,
 				D53F472D21A127C900672A42 /* TeamComponent.swift in Sources */,
 				D53F470121A0C96B00672A42 /* GeometryHelpers.swift in Sources */,
 			);
