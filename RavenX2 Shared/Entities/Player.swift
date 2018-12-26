@@ -36,7 +36,6 @@ class Player: EntityWithSpriteComponent {
         emitter.position.x -= (node.size.width / 2) - 5
         node.addChild(emitter)
         
-        // TODO conditionally add this vs keyboard component
         #if os(iOS)
         addComponent(TouchComponent(self))
         #endif

@@ -76,24 +76,40 @@ class GameScene: BaseScene, SKPhysicsContactDelegate {
         self.run(Level1(enemyManager: enemyManager, sceneState: sceneState).action)
     }
     
+    private func checkCollision(
+        bodyA: SKPhysicsBody,
+        typeA: UInt32,
+        bodyB: SKPhysicsBody,
+        typeB: UInt32 = PhysicsType.All
+    ) -> Bool {
+        var firstType = typeB
+        var secondType = typeA
+        if typeA < typeB {
+            firstType = typeA
+            secondType = typeB
+        }
+        return (bodyA.categoryBitMask & firstType) != 0 &&
+            (bodyB.categoryBitMask & secondType) != 0
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
-        var firstBody: SKPhysicsBody
-        var secondBody: SKPhysicsBody
+        var firstBody: SKPhysicsBody = contact.bodyB
+        var secondBody: SKPhysicsBody = contact.bodyA
         
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
-        } else {
-            firstBody = contact.bodyB
-            secondBody = contact.bodyA
         }
+        let firstNode = firstBody.node as! SKSpriteNode
+        let secondNode = secondBody.node as! SKSpriteNode
         
-        // TODO write this in a way that doesn't depend on the order of the numbers...
-        if (firstBody.categoryBitMask & PhysicsType.Enemy) != 0 && (secondBody.categoryBitMask & PhysicsType.Projectile) != 0 {
-            enemyHit(enemyNode: firstBody.node as! SKSpriteNode, projNode: secondBody.node as! SKSpriteNode)
+        if checkCollision(bodyA: firstBody, typeA: PhysicsType.Enemy,
+                          bodyB: secondBody, typeB: PhysicsType.Projectile) {
+            enemyHit(enemyNode: firstNode, projNode: secondNode)
         }
-        if (firstBody.categoryBitMask & PhysicsType.Player) != 0 && (secondBody.categoryBitMask & PhysicsType.Enemy) != 0 {
-            playerHit(playerNode: firstBody.node as! SKSpriteNode, enemyNode: secondBody.node as! SKSpriteNode)
+        if checkCollision(bodyA: firstBody, typeA: PhysicsType.Player,
+                          bodyB: secondBody, typeB: PhysicsType.Enemy) {
+            playerHit(playerNode: firstNode, enemyNode: secondNode)
         }
     }
     
