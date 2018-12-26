@@ -92,6 +92,9 @@ class GameScene: BaseScene, SKPhysicsContactDelegate {
         if (firstBody.categoryBitMask & PhysicsType.Enemy) != 0 && (secondBody.categoryBitMask & PhysicsType.Projectile) != 0 {
             enemyHit(enemyNode: firstBody.node as! SKSpriteNode, projNode: secondBody.node as! SKSpriteNode)
         }
+        if (firstBody.categoryBitMask & PhysicsType.Player) != 0 && (secondBody.categoryBitMask & PhysicsType.Enemy) != 0 {
+            playerHit(playerNode: firstBody.node as! SKSpriteNode, enemyNode: secondBody.node as! SKSpriteNode)
+        }
     }
     
     func enemyHit(enemyNode: SKSpriteNode, projNode: SKSpriteNode) {
@@ -101,6 +104,15 @@ class GameScene: BaseScene, SKPhysicsContactDelegate {
         
         enemyManager.collisionDetected(enemy: enemy as! Enemy1, projectile: proj as! Projectile)
         score += 5
+    }
+    
+    func playerHit(playerNode: SKSpriteNode, enemyNode: SKSpriteNode) {
+        player!.killed()
+        self.run(SKAction.sequence([
+            SKAction.wait(forDuration: 3),
+            SKAction.run {
+                self.sceneState.enter(MenuSceneState.self)
+            }]))
     }
     
     

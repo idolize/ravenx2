@@ -24,6 +24,7 @@ class Player: EntityWithSpriteComponent {
         node.position = position
         let physicsBody = SKPhysicsBody(rectangleOf: node.size)
         physicsBody.categoryBitMask = PhysicsType.Player
+        physicsBody.contactTestBitMask = PhysicsType.Enemy
         physicsBody.collisionBitMask = PhysicsType.None
         physicsBody.allowsRotation = false
         node.physicsBody = physicsBody
@@ -48,6 +49,12 @@ class Player: EntityWithSpriteComponent {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func killed() {
+        let explosion = Explosion(entityManager: entityManager, position: node.position)
+        entityManager.add(explosion)
+        entityManager.remove(self)
     }
     
     override func update(deltaTime seconds: TimeInterval) {
