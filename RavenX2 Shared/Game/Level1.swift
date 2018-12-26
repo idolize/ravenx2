@@ -14,6 +14,7 @@ class Level1 {
     let enemyManager: EnemyManager
     let sceneState: GKStateMachine
     private let enemyWaveCreator: EnemyWaveCreator
+    private let textToSpeech: TextToSpeech
     
     lazy var action: SKAction = {
         return SKAction.sequence([
@@ -25,16 +26,7 @@ class Level1 {
             enemyWaveCreator.createWaveAction(numEnemies: 6),
             SKAction.wait(forDuration: 3),
             SKAction.run {
-                #if os(iOS)
-                let utterance = AVSpeechUtterance(string: "Level 1 completed")
-                let synthesizer = AVSpeechSynthesizer()
-                synthesizer.speak(utterance)
-                #endif
-                #if os(OSX)
-                let synthesizer = NSSpeechSynthesizer()
-                synthesizer.startSpeaking("Level 1 completed")
-                #endif
-                
+                self.textToSpeech.say("Level 1 completed")
                 self.sceneState.enter(MenuSceneState.self)
             }
         ])
@@ -44,5 +36,6 @@ class Level1 {
         self.enemyManager = enemyManager
         self.sceneState = sceneState
         self.enemyWaveCreator = EnemyWaveCreator(enemyManager: enemyManager)
+        self.textToSpeech = TextToSpeech()
     }
 }

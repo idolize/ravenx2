@@ -9,6 +9,7 @@
 import GameplayKit
 
 class Projectile: EntityWithSpriteComponent {
+    let damage: Int = 50
     
     init(team: Team, position: CGPoint) {
         super.init(

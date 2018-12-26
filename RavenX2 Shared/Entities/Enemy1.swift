@@ -10,7 +10,18 @@ import GameplayKit
 import SpriteKit
 
 class Enemy1: EntityWithSpriteComponent {
-    init(position: CGPoint) {
+    var health: Int = 100 {
+        didSet {
+            if (health == 0) {
+                killed()
+            }
+        }
+    }
+    
+    let entityManager: EntityManager
+    
+    init(entityManager: EntityManager, position: CGPoint) {
+        self.entityManager = entityManager
         super.init(textureAtlas: TextureAsset.enemy1Atlas, maxHeight: 40)
         
         // TODO move physics to component?
@@ -33,6 +44,12 @@ class Enemy1: EntityWithSpriteComponent {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func killed() {
+        let explosion = Explosion(entityManager: entityManager, position: node.position)
+        entityManager.add(explosion)
+        entityManager.remove(self)
     }
     
 }

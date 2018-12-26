@@ -10,6 +10,8 @@
 		D528989221AF93F300AEFC97 /* Enemy2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D528989121AF93F300AEFC97 /* Enemy2.swift */; };
 		D528989321AF93F300AEFC97 /* Enemy2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D528989121AF93F300AEFC97 /* Enemy2.swift */; };
 		D538719E21D3C3DD0028B8EB /* CartoonExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = D554C7C021A29E3100182716 /* CartoonExplosion.sks */; };
+		D53871A121D3DC950028B8EB /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53871A021D3DC950028B8EB /* TextToSpeech.swift */; };
+		D53871A221D3DC950028B8EB /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53871A021D3DC950028B8EB /* TextToSpeech.swift */; };
 		D53F46FA219FFB9F00672A42 /* HeroShip.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D53F46F9219FFB9F00672A42 /* HeroShip.atlas */; };
 		D53F46FC219FFC3500672A42 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F46FB219FFC3500672A42 /* Player.swift */; };
 		D53F46FD219FFC3500672A42 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53F46FB219FFC3500672A42 /* Player.swift */; };
@@ -149,6 +151,7 @@
 
 /* Begin PBXFileReference section */
 		D528989121AF93F300AEFC97 /* Enemy2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy2.swift; sourceTree = "<group>"; };
+		D53871A021D3DC950028B8EB /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		D53F46F9219FFB9F00672A42 /* HeroShip.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HeroShip.atlas; sourceTree = "<group>"; };
 		D53F46FB219FFC3500672A42 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D53F46FF21A0C96B00672A42 /* GeometryHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryHelpers.swift; sourceTree = "<group>"; };
@@ -266,6 +269,7 @@
 			children = (
 				D5AA28D3219E7B9500FB8C2B /* VectorMath.swift */,
 				D53F46FF21A0C96B00672A42 /* GeometryHelpers.swift */,
+				D53871A021D3DC950028B8EB /* TextToSpeech.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -647,6 +651,7 @@
 				D53F472C21A127C900672A42 /* TeamComponent.swift in Sources */,
 				D554C7B521A283B100182716 /* TextureAsset.swift in Sources */,
 				D5641EAF21A50F780029EB60 /* SceneBaseClasses.swift in Sources */,
+				D53871A121D3DC950028B8EB /* TextToSpeech.swift in Sources */,
 				D528989221AF93F300AEFC97 /* Enemy2.swift in Sources */,
 				D53F472621A1228C00672A42 /* EntityManager.swift in Sources */,
 				D5AA28AB219E408000FB8C2B /* GameScene.swift in Sources */,
@@ -682,6 +687,7 @@
 				D528989321AF93F300AEFC97 /* Enemy2.swift in Sources */,
 				D5E2FBAF21AD20A40040AC80 /* Level1.swift in Sources */,
 				D554C72221A266BC00182716 /* EntityWithSpriteComponent.swift in Sources */,
+				D53871A221D3DC950028B8EB /* TextToSpeech.swift in Sources */,
 				D53F472721A1228C00672A42 /* EntityManager.swift in Sources */,
 				D5AA28AC219E408000FB8C2B /* GameScene.swift in Sources */,
 				D5AA28D2219E77D500FB8C2B /* MenuScene.swift in Sources */,

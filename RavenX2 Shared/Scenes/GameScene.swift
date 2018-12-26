@@ -23,7 +23,7 @@ class GameScene: BaseScene, SKPhysicsContactDelegate {
         }
     }
     
-    var gameTimer: Timer!
+    private let textToSpeech: TextToSpeech = TextToSpeech()
     
     func setUpScene(_ view: SKView) {
         backgroundColor = SKColor.init(red: 0.2, green: 0, blue: 0.05, alpha: 1)
@@ -125,6 +125,9 @@ class GameScene: BaseScene, SKPhysicsContactDelegate {
     func playerHit(playerNode: SKSpriteNode, enemyNode: SKSpriteNode) {
         player!.killed()
         self.run(SKAction.sequence([
+            SKAction.run {
+                self.textToSpeech.say("Game Over")
+            },
             SKAction.wait(forDuration: 3),
             SKAction.run {
                 self.sceneState.enter(MenuSceneState.self)

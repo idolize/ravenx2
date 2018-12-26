@@ -27,7 +27,7 @@ class EnemyManager {
         // Spawns a new enemy off screen at the right
         let scene = entityManager.scene
         let position = CGPoint(x: scene.size.width, y: positionY ?? getRandomYPos())
-        let enemy = Enemy1(position: position)
+        let enemy = Enemy1(entityManager: entityManager, position: position)
         entityManager.add(enemy)
         return enemy
     }
@@ -43,9 +43,7 @@ class EnemyManager {
     }
     
     func collisionDetected(enemy: Enemy1, projectile: Projectile) {
-        let explosion = Explosion(entityManager: entityManager, position: enemy.node.position)
-        entityManager.add(explosion)
         entityManager.remove(projectile)
-        entityManager.remove(enemy)
+        enemy.health -= projectile.damage
     }
 }
