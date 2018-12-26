@@ -24,6 +24,9 @@ class AnimatedSpriteComponent: GKComponent {
         self.timePerFrame = timePerFrame
         let animatedAtlas = SKTextureAtlas(named: atlasName)
         var frames: [SKTexture] = []
+        if animatedAtlas.textureNames.count < 1 {
+            fatalError("Unable to load texture \(atlasName)")
+        }
         for i in 1...animatedAtlas.textureNames.count {
             let textureName = "\(atlasName)\(i)"
             frames.append(animatedAtlas.textureNamed(textureName))

@@ -132,7 +132,7 @@ enum Key: CUnsignedShort {
 }
 
 struct KeyState {
-    var keys = [Bool](count: Int(Key.Count.rawValue), repeatedValue: false)
+    var keys = [Bool](repeating: false, count: Int(Key.Count.rawValue))
 }
 
 class Keyboard {
@@ -148,7 +148,7 @@ class Keyboard {
     }
     
     func handleKey(event: NSEvent, isDown: Bool) {
-        if (isDown) {
+        if isDown {
             curr.keys[Int(event.keyCode)] = true
         } else {
             curr.keys[Int(event.keyCode)] = false
@@ -157,7 +157,7 @@ class Keyboard {
     
     func justPressed(keys: Key...) -> Bool {
         for key in keys {
-            if (curr.keys[Int(key.rawValue)] == true && prev.keys[Int(key.rawValue)] == false) {
+            if curr.keys[Int(key.rawValue)] == true && prev.keys[Int(key.rawValue)] == false {
                 return true
             }
         }
@@ -166,7 +166,7 @@ class Keyboard {
     
     func justReleased(keys: Key...) -> Bool {
         for key in keys {
-            if (prev.keys[Int(key.rawValue)] == true && curr.keys[Int(key.rawValue)] == false) {
+            if prev.keys[Int(key.rawValue)] == true && curr.keys[Int(key.rawValue)] == false {
                 return true
             }
         }
@@ -175,7 +175,7 @@ class Keyboard {
     
     func pressed(keys: Key...) -> Bool {
         for key in keys {
-            if (prev.keys[Int(key.rawValue)] == true && curr.keys[Int(key.rawValue)] == true) {
+            if prev.keys[Int(key.rawValue)] == true && curr.keys[Int(key.rawValue)] == true {
                 return true
             }
         }

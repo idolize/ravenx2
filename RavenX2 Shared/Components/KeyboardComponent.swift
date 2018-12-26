@@ -14,4 +14,8 @@ class KeyboardComponent: GKComponent {
     func handleKey(_ theEvent: NSEvent, isDown: Bool) {
         keyboard.handleKey(event: theEvent, isDown: isDown)
     }
+    
+    override func update(deltaTime seconds: TimeInterval) {
+        keyboard.update()
+    }
 }

@@ -1,17 +1,17 @@
 //
-//  Enemy.swift
+//  Enemy2.swift
 //  RavenX2
 //
-//  Created by David Idol on 11/18/18.
+//  Created by David Idol on 11/28/18.
 //  Copyright © 2018 David Idol. All rights reserved.
 //
 
 import GameplayKit
 import SpriteKit
 
-class Enemy: EntityWithSpriteComponent {
+class Enemy2: EntityWithSpriteComponent {
     init(position: CGPoint) {
-        super.init(textureAtlas: TextureAsset.genericEnemyAtlas, maxHeight: 40)
+        super.init(textureAtlas: TextureAsset.enemy2Atlas, maxHeight: 40)
         
         // TODO move physics to component?
         node.position = CGPoint(x: position.x + node.size.width, y: position.y)
@@ -24,6 +24,7 @@ class Enemy: EntityWithSpriteComponent {
         node.physicsBody = physicsBody
         
         // Move the enemy left
+        // TODO have it target the direction of the player?
         let animationDuration: TimeInterval = 3
         var actionArray = [SKAction]()
         actionArray.append(SKAction.move(to: CGPoint(x: -node.size.width, y: position.y), duration: animationDuration))

@@ -12,7 +12,7 @@ import GameplayKit
 private let playerSpeed: CGFloat = 450
 private let fingerWidth: CGFloat = 30
 
-class Player: EntityWithSpriteComponent, TouchEventDelegate {
+class Player: EntityWithSpriteComponent {
     
     let entityManager: EntityManager
     
@@ -36,7 +36,12 @@ class Player: EntityWithSpriteComponent, TouchEventDelegate {
         node.addChild(emitter)
         
         // TODO conditionally add this vs keyboard component
+        #if os(iOS)
         addComponent(TouchComponent(self))
+        #endif
+        #if os(OSX)
+        addComponent(KeyboardComponent())
+        #endif
         
         addComponent(FiringComponent(entityManager: self.entityManager, firing: false))
     }
@@ -47,11 +52,36 @@ class Player: EntityWithSpriteComponent, TouchEventDelegate {
     
     override func update(deltaTime seconds: TimeInterval) {
         super.update(deltaTime: seconds)
-        let touchComponent = component(ofType: TouchComponent.self)
-        
-        // TODO handle keyboard navigation as well
-        let lastTouch = touchComponent?.lastTouchLocation
-        updatePhysics(destination: lastTouch);
+        #if os(iOS)
+        if let touchComponent = component(ofType: TouchComponent.self) {
+            let lastTouch = touchComponent.lastTouchLocation
+            updatePhysics(destination: lastTouch);
+        }
+        #endif
+        #if os(OSX)
+        let keyboardComponent = component(ofType: KeyboardComponent.self)
+        let currentPosition = node.position
+        if let keyboard = keyboardComponent?.keyboard {
+            var destX = currentPosition.x
+            if keyboard.pressed(keys: Key.Left, Key.A) {
+                destX -= 100
+            }
+            if keyboard.pressed(keys: Key.Right, Key.D) {
+                destX += 100
+            }
+            var destY = currentPosition.y
+            if keyboard.pressed(keys: Key.Up, Key.W) {
+                destY += 100
+            }
+            if keyboard.pressed(keys: Key.Down, Key.S) {
+                destY -= 100
+            }
+            let destination = CGPoint(x: destX, y: destY)
+            updatePhysics(destination: destination);
+            
+            component(ofType: FiringComponent.self)?.isFiring = keyboard.pressed(keys: Key.Space)
+        }
+        #endif
     }
     
     // Avoids "jittering" from very slight movements while holding down a touch
@@ -81,6 +111,11 @@ class Player: EntityWithSpriteComponent, TouchEventDelegate {
         node.physicsBody!.isResting = true
     }
     
+}
+
+#if os(iOS)
+// Handle touch events
+extension Player: TouchEventDelegate {
     func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, in scene: SKScene) {
         // TODO use state machine for this
         component(ofType: FiringComponent.self)?.isFiring = true
@@ -98,5 +133,5 @@ class Player: EntityWithSpriteComponent, TouchEventDelegate {
         // TODO use state machine for this
         component(ofType: FiringComponent.self)?.isFiring = false
     }
-    
 }
+#endif

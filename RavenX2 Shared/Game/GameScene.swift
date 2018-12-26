@@ -73,7 +73,7 @@ class GameScene: BaseScene, SKPhysicsContactDelegate {
             constraints: constraints
         )
         entityManager.add(player)
-        enemyManager.startSpawningEnemiesRegularly(frequency: 0.75)
+        self.run(Level1(enemyManager: enemyManager, sceneState: sceneState).action)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -99,7 +99,7 @@ class GameScene: BaseScene, SKPhysicsContactDelegate {
             fatalError("Unexpected types for enemyHit")
         }
         
-        enemyManager.collisionDetected(enemy: enemy as! Enemy, projectile: proj as! Projectile)
+        enemyManager.collisionDetected(enemy: enemy as! Enemy1, projectile: proj as! Projectile)
         score += 5
     }
     
@@ -110,12 +110,11 @@ class GameScene: BaseScene, SKPhysicsContactDelegate {
 
     override func update(_ deltaTime: TimeInterval) {
         entityManager.update(deltaTime)
-        enemyManager.update(deltaTime)
     }
     
     override func didFinishUpdate() {
         #if os(OSX)
-        Keyboard.sharedKeyboard.update()
+        Keyboard.globalKeyboard.update()
         #endif
     }
 }
@@ -145,12 +144,12 @@ extension GameScene {
 #if os(OSX)
 // Handle keyboard events
 extension GameScene {
-    override func keyUp(theEvent: NSEvent) {
-        entityManager.handleKey(theEvent, isDown: false)
+    override func keyUp(with theEvent: NSEvent) {
+        entityManager.handleKey(theEvent: theEvent, isDown: false)
     }
 
-    override func keyDown(theEvent: NSEvent) {
-        entityManager.handleKey(theEvent, isDown: true)
+    override func keyDown(with theEvent: NSEvent) {
+        entityManager.handleKey(theEvent: theEvent, isDown: true)
     }
 }
 #endif

@@ -95,7 +95,7 @@ extension EntityManager {
     func handleKey(theEvent: NSEvent, isDown: Bool) {
         for entity in entities {
             if let keyboardComponent = entity.component(ofType: KeyboardComponent.self) {
-                component.handleKey(theEvent, isDown: isDown)
+                keyboardComponent.handleKey(theEvent, isDown: isDown)
             }
         }
     }

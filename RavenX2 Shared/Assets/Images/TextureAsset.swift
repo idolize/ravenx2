@@ -8,7 +8,8 @@
 
 struct TextureAsset {
     static let heroShipAtlas: String = "HeroShip"
-    static let genericEnemyAtlas: String = "SpaceShipTwo"
+    static let enemy1Atlas: String = "SpaceShipTwo"
+    static let enemy2Atlas: String = "SpaceShipFour"
     
     static let greenBlobAtlas: String = "GreenBulletParticles"
 }
