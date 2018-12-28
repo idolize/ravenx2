@@ -10,6 +10,8 @@ import Cocoa
 import SpriteKit
 import GameplayKit
 
+let aspectRatio = NSSize(width: 19.5, height: 9)
+
 class GameViewController: NSViewController {
 
     override func viewDidLoad() {
@@ -22,6 +24,10 @@ class GameViewController: NSViewController {
         let game = GameState(view: skView)
         game.startGame()
     }
-
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        view.window?.contentAspectRatio = aspectRatio
+    }
 }
 

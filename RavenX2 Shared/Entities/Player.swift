@@ -69,17 +69,17 @@ class Player: EntityWithSpriteComponent {
         let currentPosition = node.position
         if let keyboard = keyboardComponent?.keyboard {
             var destX = currentPosition.x
-            if keyboard.pressed(keys: Key.Left, Key.A) {
+            if keyboard.pressed(keys: Key.Left) {
                 destX -= 100
             }
-            if keyboard.pressed(keys: Key.Right, Key.D) {
+            if keyboard.pressed(keys: Key.Right) {
                 destX += 100
             }
             var destY = currentPosition.y
-            if keyboard.pressed(keys: Key.Up, Key.W) {
+            if keyboard.pressed(keys: Key.Up) {
                 destY += 100
             }
-            if keyboard.pressed(keys: Key.Down, Key.S) {
+            if keyboard.pressed(keys: Key.Down) {
                 destY -= 100
             }
             let destination = CGPoint(x: destX, y: destY)

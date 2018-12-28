@@ -12,7 +12,7 @@ import GameKit
 @discardableResult
 private func initializeScene<T: BaseScene>(_ scene: T, sceneState: GKStateMachine) -> T {
     // Set the scale mode to scale to fit the window
-    scene.scaleMode = .resizeFill
+    scene.scaleMode = .aspectFill
     scene.sceneState = sceneState
     return scene
 }
